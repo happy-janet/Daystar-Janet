@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daycare Admin Dashboard</title>
+</head>
+<body>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Lato:300,300italic");
+@import url("https://use.fontawesome.com/releases/v6.4.2/css/all.css");
+
+* {
+  cursor: default;
+}
+
+html {
+  font-size: 62.5%;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+body {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dashboard {
+  font-family: "Lato", sans-serif;
+  display: block;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: space-between;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.server {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+.fa-solid {
+  font-size: 2.5rem;
+  margin: 0 2rem;
+}
+
+.details {
+  flex: 1;
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.details li {
+  color: #333;
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.details li:last-child .data {
+  font-weight: normal;
+  color: #888;
+}
+
+.details .data {
+  margin: -1.7rem 0 0 0;
+  display: block;
+  color: #666;
+  padding: 0 1rem 0 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.details .signal {
+  color: #2eb35a;
+}
+
+.details .signal::before {
+  content: "";
+  background-color: currentColor;
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  margin-top: -0.2rem;
+  vertical-align: middle;
+}
+
+.server-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-gap: 2rem;
+}
+
+.server {
+  border-color: #d22c32;
+  box-shadow: 0px 4px 15px #00000033;
+  animation: alert .8s ease-in-out infinite;
+}
+
+</style>
+</head>
+<body>
+<div class="dashboard">
+  <header class="header">
+    <span>Daycare Admin Dashboard</span>
+    <span class="clock">12 : 37 : 29</span>
+  </header>
+  <div class="server-list">
+    <div class="server">
+      <i class="fa-solid fa-child"></i>
+      <ul class="details">
+        <li>Children Enrolled:<span class="data">42</span></li>
+        <li>Staff Members:<span class="data">8</span></li>
+        <li>Rooms Occupied:<span class="data">12</span></li>
+      </ul>
+    </div>
+    <div class="server has-failed">
+      <i class="fa-solid fa-user-slash"></i>
+      <ul class="details">
+        <li>Attendance Today:<span class="data">30</span></li>
+        <li>Missing Staff:<span class="data signal">3</span></li>
+        <li>Unoccupied Rooms:<span class="data">4</span></li>
+      </ul>
+    </div>
+    <div class="server">
+      <i class="fa-solid fa-calendar-check"></i>
+      <ul class="details">
+        <li>Events Scheduled:<span class="data">5</span></li>
+        <li>Upcoming Birthdays:<span class="data">3</span></li>
+        <li>Reminders:<span class="data">2</span></li>
+      </ul>
+    </div>
+    <div class="server">
+      <i class="fa-solid fa-book"></i>
+      <ul class="details">
+        <li>Reports Generated:<span class="data">10</span></li>
+        <li>Progress Assessments:<span class="data">6</span></li>
+        <li>Feedback Submitted:<span class="data">8</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

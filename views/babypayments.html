@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daycare Income Management</title>
+  <link rel="stylesheet" href="../public/css/babypayments.css">
+  <script src="validation.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Daycare Income Management</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../views/income.html">Income Management</a></li>
+      <li><a href="../views/babypayments.html">Baby Payments</a></li>
+      <li><a href="../views/dollstall.html">Doll Stall</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="babyPaymentsSection">
+      <h2>Babies Payments</h2>
+      <form id="babyPaymentForm" onsubmit="return validateForm()">
+        <div class="form-group">
+          <label for="babyName">Baby Name:</label>
+          <input type="text" id="babyName" name="babyName" placeholder="Enter baby's name">
+        </div>
+        <div class="form-group">
+          <label for="periodOfStay">Period of stay:</label>
+          <select id="periodOfStay" name="periodOfStay">
+            <option value="">Select period of stay</option>
+            <option value="half_day">Half Day</option>
+            <option value="full_day">Full Day</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amountPaid">Amount Paid (UGX):</label>
+          <select id="amountPaid" name="amountPaid">
+            <option value="">Select amount paid</option>
+            <option value="10000">10,000 UGX</option>
+            <option value="15000">15,000 UGX</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </section>
+
+    <section id="dollStallSection">
+      <!-- Dolls table remains unchanged -->
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 DayStar Daycare</p>
+  </footer>
+
+  <!-- Dummy data and JavaScript unchanged from previous version -->
+</body>
+</html>

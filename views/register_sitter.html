@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babysitter Registration Form</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Babysitter Registration Form</h2>
+    <form id="registrationForm" class="form">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" />
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" />
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" />
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nextOfKin">Next of Kin:</label>
+        <input type="text" id="nextOfKin" name="nextOfKin" />
+      </div>
+      <div class="form-group">
+        <label for="nin">National Identification Number (NIN):</label>
+        <input type="text" id="nin" name="nin" required />
+      </div>
+      <div class="form-group">
+        <label for="recommender">Recommender's Name:</label>
+        <input type="text" id="recommender" name="recommender" />
+      </div>
+      <div class="form-group">
+        <label for="educationLevel">Level of Education:</label>
+        <input type="text" id="educationLevel" name="educationLevel" />
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" />
+      </div>
+      <div class="form-group">
+        <label for="sittersNumber">Babysitter's Number:</label>
+        <input type="text" id="sittersNumber" name="sittersNumber" />
+      </div>
+      <div class="btn">
+        <input type="submit" value="Register" />
+      </div>
+    </form>
+  </div>
+</body>
+</html>

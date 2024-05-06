@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Other Expenses Form
+  link(rel='stylesheet' href='../public/css/othersform.css')
+h1 Other Expenses Form
+form(action='/' method='POST')
+  label(for='expenseType') Name of item:
+  input#expenseType(type='text' name='expenseType' required='')
+  br
+  br
+  label(for='quantity') Quantity:
+  input#quantity(type='number' name='quantity' required='')
+  br
+  br
+  label(for='amount') Amount:
+  input#amount(type='number' name='amount' required='')
+  br
+  br
+  label(for='description') Description:
+  br
+  textarea#description(name='description' rows='4' cols='50')
+  br
+  br
+  button(type='submit') Submit

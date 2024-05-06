@@ -1,0 +1,29 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Expenses Overview
+  link(rel='stylesheet' href='/css/otherexpenses.css')
+header.header
+  .container
+    h1 Expenses Overview
+a.add-button(href='../views/othersform.html') Add Expense
+.container
+  .expenses-list
+    table.expenses-table
+      thead
+        tr
+          th Name of item
+          th Quantity
+          th Amount
+          th Description
+      tbody
+        if other.legth 
+          each other in others 
+            tr 
+              td #{other.expenseType}
+              td #{other.quantity}
+              td #{other.amount}
+footer.footer
+  .container
+    p &copy; 2024 Daystar Daycare. All rights reserved.

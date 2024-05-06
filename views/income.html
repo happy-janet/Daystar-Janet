@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daycare Income Management</title>
+  <link rel="stylesheet" href="../public/css/income.css">
+</head>
+<body>
+    <header>
+        <h1>Daycare Income Management</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="../views/income.html">Income Management</a></li>
+          <li><a href="../views/babypayments.pug">Baby Payments</a></li>
+          <li><a href="../views/dollstall.html">Doll Stall</a></li>
+        </ul>
+      </nav>
+  <div class="container">
+    <!-- <h2>Babies Payments</h2> -->
+    <form id="babyPaymentForm">
+        <h2>Babies Payments</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Baby Name</th>
+            <th>Period Of Stay</th>
+            <th>Amount Paid (UGX)</th>
+          </tr>
+        </thead>
+        <tbody id="babyPaymentTable">
+          <!-- Payment details will be populated here -->
+        </tbody>
+      </table>
+    </form>
+
+    <!-- <h2>Dolls Sold</h2> -->
+    <form id="dollStallForm">
+        <h2>Dolls Sold</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Doll Name</th>
+              <th>Price (UGX)</th>
+            </tr>
+          </thead>
+          <tbody id="dollStallForm">
+            <!-- Dolls details will be populated here -->
+          </tbody>
+        </table>
+      </form>
+    </div>
+  <footer>
+    <p>&copy; 2024 DayStar Daycare</p>
+  </footer>
+</body>
+</html>

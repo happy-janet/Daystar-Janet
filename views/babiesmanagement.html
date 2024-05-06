@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitters Management</title>
+    <link rel="stylesheet" href="../public/css/sittersmanagment.css">
+</head>
+<body>
+  <header>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="logout()">Logout</a></li>
+          <li><a href="procurementsmanagement.html">Procurement</a></li>
+          <li><a href="paymentsmanagement.html">Payments</a></li>
+          <li><a href="babiesmanagement.html">Babies</a></li>
+          <li><a href="sittersmanagement2.html">Sitters</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+      <h1>DayStar Admin Dashboard</h1>
+    </header>
+  </header>
+  <main>
+    <!-- search-bar.html -->
+<input type="text" id="searchQuery" placeholder="Enter search query">
+<button onclick="search()">Search</button>
+<div id="searchResults">
+    <!-- Search results will be displayed here -->
+</div>
+
+    <div class="container">
+      <h2>Baby Registration Form</h2>
+      <form id="babyForm">
+          <label for="babyName">Baby's Name:</label>
+          <input type="text" id="babyName">
+  
+          <label for="gender">Gender:</label>
+          <select id="gender" >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+          </select>
+          
+          <label for="age">Age (in months):</label>
+          <input type="number" id="age">
+  
+          <label for="location">Location:</label>
+          <input type="text" id="location">
+  
+          <label for="timeOfArrival">Time of Arrival:</label>
+          <input type="time" id="timeOfArrival">
+  
+          <label for="parentsName">Parent's Name:</label>
+          <input type="text" id="parentsName">
+  
+          <label for="amount">Amount in Shillings:</label>
+          <input type="number" id="amount">
+  
+          <label for="periodOfStay">Period of Stay:</label>
+          <input type="text" id="periodOfStay">
+  
+          <label for="babyNumber">Baby Number:</label>
+          <input type="number" id="babyNumber" >
+  
+          <input type="submit" value="Register">
+      </form>
+  </div>
+  
+    </div>
+    <section>
+        <h2>Registered Babies</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>BabiesName</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Location</th>
+              <th>TimeOfArrival</th>
+              <th>ParentsName</th>
+              <th>Amount</th>
+              <th>PeriodOfStay</th>
+              <th>BabyNumber</th>
+            </tr>
+          </thead>
+          <tbody id="babies-list">
+            <!-- Babies data will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 DayStar Daycare Facility</p>
+  </footer>
+<script src="../javascript/babiesmanagement.js"></script>
+</body>
+</html>

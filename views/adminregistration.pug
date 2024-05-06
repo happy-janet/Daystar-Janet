@@ -1,0 +1,19 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin Registration Form
+  link(rel='stylesheet' href='css/adminregister.css')
+form(action='/register' method='POST')
+  label(for='fullname') Full Name:
+  input#fullname(type='text' name='fullname')
+  label(for='email') Email:
+  input#email(type='email' name='email')
+  label(for='password') Password:
+  input#password(type='password' name='password')
+  label(for='role') Role:
+  select#role(name='role')
+    option(value='') Select Role
+    option(value='admin') Admin
+    option(value='moderator') Sitter
+  input(type='submit' value='Register')

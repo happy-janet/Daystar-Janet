@@ -1,0 +1,19 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sitter Update
+  link(rel='stylesheet' href='/css/adminregister.css')
+form(action='/sitterupdate?id='+sitter._id  method='POST')
+  label(for='firstname') First Name:
+  input#firstname(type='text' name='firstName' value=sitter.firstName)
+  label(for='dob') Date of birth:
+  input#email(type='dob' name='dob' value=sitter.dob)
+  label(for='contact') Contact:
+  input#contact(type='contact' name='contact' value=sitter.contact)
+  label(for='gender') Gender:
+  select#role(name='role')
+    option(value='male' selected= sitter.gender=== 'male') Male 
+    option(value='female' selected= sitter.gender=== 'male') Female 
+    option(value='other' selected= sitter.gender=== 'male') Other 
+  input(type='submit' value='Update')

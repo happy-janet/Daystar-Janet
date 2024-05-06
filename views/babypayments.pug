@@ -1,0 +1,43 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Daycare Income Management
+  link(rel='stylesheet' href='../public/css/babypayments.css')
+  script(src='validation.js')
+header
+  h1 Daycare Income Management
+nav
+  ul
+    li
+      a(href='../views/income.html') Income Management
+    li
+      a(href='../views/babypayments.html') Baby Payments
+    li
+      a(href='../views/dollstall.html') Doll Stall
+.container
+  section#babyPaymentsSection
+    h2 Babies Payments
+    form#babyPaymentForm(onsubmit='return validateForm()' action='#' method='POST')
+      .form-group
+        label(for='babyName') Baby Name:
+        input#babyName(type='text' name='babyName' placeholder="Enter baby's name" value=babies.babyName)
+      .form-group
+        label(for='periodOfStay') Period of stay:
+        select#periodOfStay(name='periodOfStay' values=babies.periodOfStay)
+          option(value='') Select period of stay
+          option(value='half_day') Half Day
+          option(value='full_day') Full Day
+      .form-group
+        label(for='amountPaid') Amount Paid (UGX):
+        select#amountPaid(name='amountPaid' value=babies.amountPaid)
+          option(value='') Select amount paid
+          option(value='10000') 10,000 UGX
+          option(value='15000') 15,000 UGX
+      .form-group
+        input(type='submit' value='Submit')
+  section#dollStallSection
+    // Dolls table remains unchanged
+footer
+  p &copy; 2024 DayStar Daycare
+// Dummy data and JavaScript unchanged from previous version

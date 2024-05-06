@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Clocked In Babies
+  link(rel='stylesheet' href='/css/clockedinlist.css')
+.container
+  h1 Clocked In Babies
+  table
+    thead
+      tr
+        th Baby&apos;s Name
+        th Person Who Brought the Baby
+        th Contact
+        th Amount paid
+        th Clock In Time
+    tbody
+       if babies.length 
+        each baby in babies
+          tr 
+            td #{baby.babyName}
+            td #{baby.parentsName}
+            td #{baby.personContact}
+            td #{baby.amount}
+            td #{baby.timeOfArrival}
+
+//- script(src='/js/clockin.js')

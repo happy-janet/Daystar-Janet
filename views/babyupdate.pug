@@ -1,0 +1,19 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Baby Update
+  link(rel='stylesheet' href='/css/adminregister.css')
+form(action='/babyupdate?id='+babies._id  method='POST')
+  label(for='babyname') Baby Name:
+  input#babyname(type='text' name='babyName' value=babies.babyName)
+  label(for='parentsname') Parents Name:
+  input#parentsname(type='text' name='parentsName' value=babies.paentsName)
+  label(for='contact') Contact:
+  input#babynumber(type='text' name=' babyNumber' value=babies.babyNumber)
+  label(for='gender') Gender:
+  select#role(name='role')
+    option(value='male' selected= babies.gender=== 'male') Male 
+    option(value='female' selected= babies.gender=== 'male') Female 
+    option(value='other' selected= babies.gender=== 'male') Other 
+  input(type='submit' value='Update')

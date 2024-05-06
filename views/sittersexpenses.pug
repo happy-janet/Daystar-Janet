@@ -1,0 +1,28 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sitters Expenditure
+  link(rel='stylesheet' href='../public/css/sittersexpenses.css')
+header.header
+  .container
+    h1 Daystar Daycare
+.container
+  h2 Sitters Expenditure
+  a.add-button(href='../views/sittersexpform.html') Add Sitter Payment
+  table.payment-table
+    thead
+      tr
+        th Sitter&apos;s Name
+        th Number of Babies Attended
+        th Amount
+    tbody
+      if sitterexp.length 
+        each sitterexp in sitterexps 
+          tr 
+            td #{sitterexp.sitterName}
+            td #{sitterexp.numBabies}
+            td #{sitterexp.amount}
+footer.footer
+  .container
+    p &copy; 2024 Daystar Daycare. All rights reserved.

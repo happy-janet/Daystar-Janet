@@ -1,0 +1,32 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Daycare Income Management
+  link(rel='stylesheet' href='/css/babypayments.css')
+header
+  h1 Daycare Income Management
+nav
+  ul
+    li
+      a(href='/income') Income Management
+    li
+      a(href='/babypayments') Baby Payments
+    li
+      a(href='/dollstall') Doll Stall
+.container
+  section#babyPaymentsSection
+    // Baby payment form remains unchanged
+  section#dollStallSection
+    h2 Doll Stall Transactions
+    form#dollStallForm
+      .form-group
+        label(for='dollName') Doll Name:
+        input#dollName(type='text' name='dollName' placeholder="Enter doll's name" value=dolls.dollName)
+      .form-group
+        label(for='dollPrice') Price (UGX):
+        input#dollPrice(type='text' name='dollPrice' placeholder="Enter doll's price" value=dolls.dollPrice)
+      .form-group
+        input(type='submit' value='Submit')
+footer
+  p &copy; 2024 DayStar Daycare

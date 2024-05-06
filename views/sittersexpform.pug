@@ -1,0 +1,24 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Payment Form
+  link(rel='stylesheet' href='../public/css/sittersexpform.css')
+h1 Payment Form for Sitters
+form(action='/' method='POST')
+  label(for='sitterName') Sitter&apos;s Name:
+  input#sitterName(type='text' name='sitterName' required='')
+  br
+  br
+  label(for='numBabies') Number of Babies Attended:
+  input#numBabies(type='number' name='numBabies' required='')
+  br
+  br
+  label(for='amount') Amount:
+  input#amount(type='number' name='amount' required='')
+  br
+  br
+  button(type='submit') Submit
+footer.footer
+  .container
+    p &copy; 2024 Daystar Daycare. All rights reserved.

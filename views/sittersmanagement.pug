@@ -1,0 +1,69 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sitters Management
+  link(rel='stylesheet' href='/css/sittersmanagment.css')
+
+header
+    nav
+      ul
+        li
+           a(href='/logout') Logout
+        li
+           a(href='procurementsm nagement.pug') Procurement
+        li
+           a(href='paymentsmanagement.pug') Payments
+        li
+           a(href='babiesmanagement.pug') Babies
+        li
+           a(href='sittersmanagement2.pug') Sitters
+        li
+           a(href='index.pug') Home
+    h1 DayStar Admin Dashboard
+main
+    a(href="/registersitter")
+      button#happy Add Sitter
+section
+  h2 Registered Sitters
+    table
+      thead
+        tr
+          th First Name
+          th Second Name
+          th Location
+          th Date of Birth
+          th Gender
+          th Next of Kin
+          th NIN
+          th Recommender&apos;s Name
+          // <th>Religion</th>
+          th Education Level
+          th Contact
+          th Babysitter number
+          th Action
+          th Delete
+      tbody#sitters-list
+        if sitters.length 
+        each sitter in sitters 
+          tr 
+            td #{sitter.firstName}
+            td #{sitter.lastName}
+            td #{sitter.location}
+            td #{sitter.dob}
+            td #{sitter.gender}
+            td #{sitter.nextOfKin}
+            td #{sitter.nin}
+            td #{sitter.recommender}
+            td #{sitter.educationLevel}
+            td #{sitter.contact}
+            td #{sitter.sittersNumber}
+            td 
+              a(href="/sitterupdate/"+ sitter._id) Update
+            td 
+              form(method="POST" action="/delete")
+                input(type="hidden" name="id" value=sitter._id)
+                button(type="submit") Delete 
+script(src='../public/js/sittersmanagement.js')
+
+        

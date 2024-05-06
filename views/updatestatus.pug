@@ -1,0 +1,21 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Status Update
+  link(rel='stylesheet' href='/css/adminregister.css')
+body
+  form(action='/babyupdate?id='+baby._id method='POST')
+    input#status(type='text' name='status' value=(baby ? baby.status : ''))
+    label(for='babyname') Baby Name:
+    input#babyname(type='text' name='babyName' value=(baby ? baby.babyName : ''))
+    label(for='parentsname') Parents Name:
+    input#parentsname(type='text' name='parentsName' value=(baby ? baby.parentsName : ''))
+    label(for='contact') Contact:
+    input#babynumber(type='text' name='babyNumber' value=(baby ? baby.babyNumber : ''))
+    label(for='gender') Gender:
+    select#role(name='gender')
+      option(value='male' selected=(baby && baby.gender === 'male')) Male
+      option(value='female' selected=(baby && baby.gender === 'female')) Female
+      option(value='other' selected=(baby && baby.gender === 'other')) Other
+    input(type='submit' value='Update')

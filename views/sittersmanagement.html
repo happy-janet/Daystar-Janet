@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitters Management</title>
+    <link rel="stylesheet" href="../public/css/sittersmanagment.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+        <li><a href="procurementsmanagement.html">Procurement</a></li>
+        <li><a href="paymentsmanagement.html">Payments</a></li>
+        <li><a href="babiesmanagement.html">Babies</a></li>
+        <li><a href="sittersmanagement2.html">Sitters</a></li>
+        <li><a href="index.html">Home</a></li>
+
+      </ul>
+    </nav>
+    <h1>DayStar Admin Dashboard</h1>
+  </header>
+  <main>
+    <button id="happy">Add Sitter</button>
+    <section>
+        <h2>Registered Sitters</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>FirstName</th>
+              <th>SecondName</th>
+              <th>Location</th>
+              <th>Date of Birth</th>
+              <th>Gender</th>
+              <th>Next of Kin</th>
+              <th>NIN</th>
+              <th>Recommender's Name</th>
+              <!-- <th>Religion</th> -->
+              <th>Education Level</th>
+              <th>Contact</th>
+              <th>Babysitter number</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="sitters-list">
+            <!-- Sitters data will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 DayStar Daycare Facility</p>
+  </footer>
+  <script src="../public/js/sittersmanagement.js"></script>
+</body>
+</html>

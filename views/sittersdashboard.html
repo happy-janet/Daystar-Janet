@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitter Dashboard - Overview</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/sittersdashboard.css">
+</head>
+<body>
+    <header>
+        <h1>SITTERS DASHBOARD</h1>
+        <nav>
+            <ul>
+                <li><a href="../views/sitterscheckin.html">Sittercheckin</a></li>
+                <li><a href="../views/sitterschedule.html">Schedule</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h2>Dashboard Overview</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="../public/images/schedule2.png" class="card-img-top" alt="Schedule">
+                            <div class="card-body">
+                                <h5 class="card-title">View Schedule</h5>
+                                <p class="card-text">Check your upcoming schedule.</p>
+                                <a href="../views/sitterschedule.html" class="btn btn-primary">Go to Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="../public/images/profile.png" class="card-img-top" alt="Profile">
+                            <div class="card-body">
+                                <h5 class="card-title">Check-in Details</h5>
+                                <p class="card-text">Ensure to Check-in on Arrival.</p>
+                                <a href="../views/sitterscheckin.html" class="btn btn-primary">Sitters Check-in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>DayStar Daycare &copy; 2024</p>
+    </footer>
+</body>
+</html>

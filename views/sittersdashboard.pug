@@ -1,0 +1,38 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sitter Dashboard - Overview
+  link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/sittersdashboard.css')
+header
+  h1 SITTERS DASHBOARD
+  nav
+    ul
+      li
+        a(href='../views/sitterscheckin.html') Sittercheckin
+      li
+        a(href='../views/sitterschedule.html') Schedule
+      li
+        a(href='#') Logout
+main
+  section.dashboard
+    h2 Dashboard Overview
+    .container
+      .row
+        .col-md-6
+          .card
+            img.card-img-top(src='/images/schedule2.png' alt='Schedule')
+            .card-body
+              h5.card-title View Schedule
+              p.card-text Check your upcoming schedule.
+              a.btn.btn-primary(href='../views/sitterschedule.html') Go to Schedule
+        .col-md-6
+          .card
+            img.card-img-top(src='/images/profile.png' alt='Profile')
+            .card-body
+              h5.card-title Check-in Details
+              p.card-text Ensure to Check-in on Arrival.
+              a.btn.btn-primary(href='../views/sitterscheckin.html') Sitters Check-in
+footer
+  p DayStar Daycare &copy; 2024

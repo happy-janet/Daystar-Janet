@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock In Baby</title>
+    <link rel="stylesheet" href="../public/css/clockin.css">
+</head>
+<body>
+    <h1>Clock Out Baby</h1>
+    <form id="clockInForm">
+        <div class="form-group">
+            <label for="babyName">Baby's Name:</label>
+            <input type="text" id="babyName" name="babyName" required>
+        </div>
+        <div class="form-group">
+            <label for="personName">Person Who's Taking the Baby:</label>
+            <input type="text" id="personName" name="personName">
+        </div>
+        <div class="form-group">
+            <label for="personContact">Contact of the Person:</label>
+            <input type="text" id="personContact" name="personContact">
+        </div>
+        <div class="form-group">
+            <label for="clockInTime">Clock Out Time:</label>
+            <input type="text" id="clockInTime" name="clockInTime" value="" readonly>
+        </div>
+        <input type="submit" value="Clock In">
+    </form>
+ <script src="../public/js/clockin.js"></script>
+</body>
+</html>

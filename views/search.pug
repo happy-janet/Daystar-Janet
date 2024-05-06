@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Search
+  form(action="/search", method="GET")
+    div.form-group
+      label(for="query") Search Query:
+      input#query.form-control(type="text", name="query", placeholder="Enter your search query")
+    button.btn.btn-primary(type="submit") Search

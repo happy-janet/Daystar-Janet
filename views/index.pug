@@ -1,0 +1,80 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Landing Page
+  link(rel='stylesheet' href='/css/styles.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css' integrity='sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==' crossorigin='anonymous' referrerpolicy='no-referrer')
+header.header
+  a.logo(href='#home')
+    | Daystar 
+    span Daycare
+  i#menu-icon.fa-solid.fa-bars
+  nav.navbar
+    a.active(href='#home') Home
+    a(href='#about') About
+section#home.home
+  .home-content
+    h2
+      | Welcome to DayStar:
+      span
+        | Your Management Hub! 
+        i.fa-regular.fa-star
+    h3.text-animation
+      span
+    p We provide exceptional childcare services for your little ones.
+    .social-icons
+      a(href='#')
+        i.fa-brands.fa-instagram
+      a(href='#')
+        i.fa-brands.fa-facebook
+      a(href='#')
+        i.fa-brands.fa-whatsapp
+    .btn-group
+      a.btn(href='/login') Get Started
+  .home-img
+    img(src='/images/logo2.png' alt='Placeholder Image')
+section#about.about
+  h2.heading About
+  .about-container
+    .about-box
+      .about-info
+        h4 MISSION
+        p
+          | At Daystar Daycare, our mission is to provide a safe, nurturing,
+          | and enriching environment where children can learn, grow, and
+          | thrive. We are dedicated to fostering their holistic development
+          | by offering innovative programs and personalized care that meets
+          | the diverse needs of each child and family we serve.
+    .about-box
+      .about-info
+        h4 VISION
+        p
+          | Our vision at Daystar Daycare is to be recognized as a leading
+          | provider of high-quality early childhood education and childcare
+          | services. We aspire to create a community where every child feels
+          | valued, empowered, and inspired to reach their full potential,
+          | laying a strong foundation for lifelong learning and success.
+    .about-box
+      .about-info
+        h4 CORE VALUES
+        p
+          ul
+            li  Excellence
+            li  Child-Centric Approach
+            li Safety and Security
+            li  Continuous Improvement
+    .about-box
+      .about-info
+        h4 Regarding
+        p
+          | Daystar Daycare is a trusted early childhood education and childcare center located in the heart of [Your City/Area]. Since [Year of Establishment], we have been dedicated to providing exceptional care and education for children aged [X months to X years], offering a range of programs tailored to meet the developmental needs of infants, toddlers, preschoolers, and pre-kindergarten children.
+footer.footer
+  .social
+    a(href='#')
+      i.fa-brands.fa-linkedin-in
+    a(href='#')
+      i.fa-brands.fa-github
+    a(href='#')
+      i.fa-brands.fa-whatsapp
+  p.copyright Aballo Happy Janet | All Rights Reserved
