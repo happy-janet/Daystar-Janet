@@ -1,27 +1,73 @@
+//- doctype html
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   title DayStar Admin Dashboard
+//-   link(rel='stylesheet' href='/css/admindashboard.css')
+//- header
+//-   h1 DayStar Admin Dashboard
+//-   main
+//-     .card
+//-       a(href='/sitterslist')
+//-         img(src='/images/sitter.png' alt='Sitters')
+//-         h3 Sitters Management Page
+//-     .card
+//-       a(href='/babieslist')
+//-         img(src='/images/babies2.png' alt='Babies')
+//-         h3.janet Babies Management Page
+//-     .card
+//-       a(href='/income')
+//-         img(src='/images/payments.png' alt='Payments')
+//-         h3 Payments Management Page
+//-     .card
+//-       a(href='/procurementsmanagement')
+//-         img(src='/images/procurements.png' alt='Procurement')
+//-         h3 Procurement Management Page
+//-   footer
+//-     p &copy; 2024 DayStar Daycare Facility
+
 doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title DayStar Admin Dashboard
+  title DayStar Dashboard
   link(rel='stylesheet' href='/css/admindashboard.css')
 header
-  h1 DayStar Admin Dashboard
-  main
-    .card
-      a(href='/sitterslist')
-        img(src='/images/sitter.png' alt='Sitters')
-        h3 Sitters Management Page
-    .card
-      a(href='/babieslist')
-        img(src='/images/babies2.png' alt='Babies')
-        h3.janet Babies Management Page
-    .card
-      a(href='/income')
-        img(src='/images/payments.png' alt='Payments')
-        h3 Payments Management Page
-    .card
-      a(href='/procurementsmanagement')
-        img(src='/images/procurements.png' alt='Procurement')
-        h3 Procurement Management Page
-  footer
-    p &copy; 2024 DayStar Daycare Facility
+  h1 Welcome to DayStar Dashboard
+main
+  .sidebar
+    h2 DayStar Dashboard
+    ul.nav-links
+      li
+        a(href='/checkin-babies') Sitters List
+      li
+        a(href='/checkout-babies') Checkedin Babies
+      li
+        a(href='/register-sitter') Checkedout Babies
+      li
+        a(href='/procurement') Dolls
+      li
+        a(href='/procurement') Procrement Overview
+      li
+        a(href='/procurement')
+  .content
+    //- h1 Dashboard
+    .dashboard-cards
+      a.card(href='/babieslist')
+        img(src='/images/aballo.png' alt='Check In Babies')
+        h3 Check In Babies
+        p Feeel at Home
+      a.card(href='/checkout-babies')
+        img(src='/images/image.png' alt='Check Out Babies')
+        h3 Check Out Babies
+        p See you Tomorrow 
+      a.card(href='/sitterslist')
+        img(src='/images/sitter.png' alt='Register Sitter')
+        h3 Register Sitter
+        p Happy sitters
+      a.card(href='/procurement')
+        img(src='/images/payments.png' alt='Procurement')
+        h3 Procurement
+        p All your transactions
+footer
+  p &copy; 2024 DayStar Daycare. All rights reserved.

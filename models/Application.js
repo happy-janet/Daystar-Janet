@@ -45,11 +45,15 @@ const applicationSchema = new mongoose.Schema({
         type:String,
         trim:true
     },
+    clockInTime:{
+        type:String,
+        trim:true
+    },
     clockOutTime:{
         type:String,
         trim:true
     },
-    status:{
+    sitter:{
         type:String,
         trim:true
 }

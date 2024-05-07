@@ -7,7 +7,7 @@
     }
 
     body {
-      background: var(--bg-color);
+      background: var(--header-color);
       color: var(--main-color);
       font-family: Arial, sans-serif;
       padding: 20px;
@@ -17,10 +17,10 @@
     .container {
       max-width: 500px;
       margin: auto;
-      background: var(--main-color);
+      background: var(--header-color);
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      background: var(--second-bg-color);
+      background: var(--header-color);
       border: 1px solid var(--main-color);
       padding: 20px;
       --webkit-backdrop-filter: blur(10px);

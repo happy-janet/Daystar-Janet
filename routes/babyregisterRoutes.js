@@ -32,7 +32,7 @@ router.get("/babieslist", async(req, res) => {
   } catch (error) {
     res.status(400).send("unable to fetch babies from the database")
   }
-})
+});
 
 router.post("/deleted", async (req, res) => {
   try { 

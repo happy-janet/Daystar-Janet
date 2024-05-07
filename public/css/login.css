@@ -29,7 +29,7 @@ body {
     left: 0;
     width: 100%;
     padding: 2rem 6% 2rem;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--header-color);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -72,7 +72,7 @@ span{
 }
 
 form {
-    background: var(--second-bg-color);
+    background: var(--header-color);
     padding: 3em;
     height: 320px;
     border-radius: 20px;
@@ -94,7 +94,6 @@ form:hover {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     color: #fff;
-    text-shadow: 2px 2px 4px var(--main-color);
 }
 
 .drops {
@@ -144,24 +143,20 @@ form input {
     border-top: 1px solid var(--main-color);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur (5px);
-    box-shadow: 4px 4px 60px var(--main-color);
     text-align: center;
     position: relative;
     --webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     color: var(--text-color);
     font-weight: 500;
-    text-shadow: 2px 2px 4px var(--main-color);
     border-radius: 5000px;
 }
 form input:hover{
     background: var(--second-bg-color);
-    box-shadow: 4px 4px 60px 8px var(--main-color);
 }
 form input[type="email"]:focus,
 form input[type="password"]:focus{
     background: var(--second-bg-color);
-    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
 }
 form input[type="button"]{
     width: 150px;
@@ -177,7 +172,6 @@ form:hover{
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
     color: white;
-    text-shadow: 2px 2px 4px var(--main-color);
 }
 a,
 input:focus,
@@ -185,3 +179,28 @@ button:focus,
 select:focus{
     outline: none;
 }
+footer {
+    background-color: var(--second-bg-color);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+  }
+
+.login-button {
+    background-color: var(--main-color); 
+    color: #FFFFFF; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: var(--second-bg-color); 
+  }
+  

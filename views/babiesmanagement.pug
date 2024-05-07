@@ -40,8 +40,8 @@ table
       th Amount
       th PeriodOfStay
       th BabyNumber
-      th Status
-      th Clockedin 
+      th Sitter
+      th Checkout 
       th Update 
       th Delete
 
@@ -58,7 +58,7 @@ table
           td #{baby.amount}
           td #{baby.periodOfStay}
           td #{baby.babyNumber}
-          td #{baby.status}
+          td #{baby.sitter}
 
           td 
             a.btn.btn-primary.btn-block.btn-secondary(href= "/babyClockIn/"+ baby._id) Clockedin
