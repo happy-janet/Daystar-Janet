@@ -14,7 +14,7 @@ require("dotenv").config();
 
 //import register model with user details
 const Register = require("./models/Register")
-
+const Sitters = require("./models/Sitters")
 
 const port = 3700;
 

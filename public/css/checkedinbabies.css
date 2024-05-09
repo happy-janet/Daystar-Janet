@@ -1,0 +1,53 @@
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #6ccff6;
+    --header-color:#2C4E80;
+  }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  /* Button Styling */
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+/* Header Styling */
+header {
+    background-color: var(--header-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: var(--header-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+    

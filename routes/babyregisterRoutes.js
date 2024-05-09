@@ -1,133 +1,154 @@
+
 const express = require("express");
 const router = express.Router();
-const connectEnsureLogin = require("connect-ensure-login")
+const connectEnsureLogin = require("connect-ensure-login");
 
-//import model
-const Register = require("../models/Register");
+// Import model
+const Sitters = require("../models/Sitters");
 const Application = require("../models/Application");
+
+// Define sitters as an empty array
+let sitters = [];
+
+// Fetch sitters from the database
+const fetchSitters = async () => {
+  try {
+    sitters = await Sitters.find();
+    console.log("Fetched sitters:", sitters);
+  } catch (error) {
+    console.error("Error fetching sitters:", error);
+  }
+};
+
+// Call fetchSitters function to populate sitters array
+fetchSitters();
 
 router.get("/registerbaby", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
   res.render("registerbaby");
 });
 
-router.post("/registerbaby",  connectEnsureLogin.ensureLoggedIn(), async(req, res) => {
+router.post("/registerbaby", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
   try {
     const baby = new Application(req.body);
     console.log("New baby:", baby);
-    await baby.save()
-    res.redirect("/babieslist")
+    await baby.save();
+    res.redirect("/babieslist");
   } catch (error) {
-    res.status(400).send("error, baby not registered")
-    console.log("baby not registered", error)
+    res.status(400).send("Error: baby not registered");
+    console.error("Error registering baby:", error);
   }
- 
 });
 
-//fetching babies from the database
-router.get("/babieslist", async(req, res) => {
+// Fetching babies from the database
+router.get("/babieslist", async (req, res) => {
   try {
-    let babies = await Application.find();
+    const babies = await Application.find();
     console.log("Fetched babies:", babies);
-    res.render("babiesmanagement", {babies:babies})
+    res.render("babiesmanagement", { babies: babies });
   } catch (error) {
-    res.status(400).send("unable to fetch babies from the database")
+    res.status(400).send("Unable to fetch babies from the database");
+    console.error("Error fetching babies:", error);
   }
 });
 
 router.post("/deleted", async (req, res) => {
-  try { 
-    await Application.deleteOne({_id:req.body.id});
-  res.redirect("back")
-  } catch (error) {
-    res.status(400).send("unable to delete baby from the db")
-    console.log("Error deleting baby", error);
-  }
-  
-});
-
- //updating babies  in the database
-  router.get("/babyupdate/:id", async(req, res) =>{
-    try {
-      const babyupdate = await Application.findOne({_id: req.params.id})
-      res.render("babyupdate", {babies:babyupdate})
-    } catch (error) {
-      console.log("error finding a baby", error);
-      res.status(400).send("unable to find babies from the db");
-    }
-  })
-
-  router.post("/babyupdate", async(req, res) => {
-    try {
-      await Application.findOneAndUpdate({_id: req.query.id}, req.body);
-      res.redirect("/babieslist")
-    } catch (error) {
-      res.status(404).send("unable to update babies in the db");
-    }
-  })
-  
-  // Fetching list of all babies clocked in from the database
-router.get("/clockedinlist", async (req, res) => {
   try {
-    // Find all babies with the status "ClockedIn"
-    const babies = await Application.find({ status: "ClockedIn" });
-    console.log("Clocked-in babies:", babies);
-    // Render the "clockedinlist" template and pass the list of babies
-    res.render("clockedinlist", { babies: babies });
+    await Application.deleteOne({ _id: req.body.id });
+    res.redirect("back");
   } catch (error) {
-    console.error("Error fetching clocked-in babies:", error);
-    res.status(500).send("Unable to fetch clocked-in babies from the database!");
+    res.status(400).send("Unable to delete baby from the database");
+    console.error("Error deleting baby:", error);
   }
 });
 
-
-     //clockin baby route for form in database
- router.get("/babyClockIn/:id", async(req, res)=> { 
-  try{
-     const sitters  = await Register.find()
-    const babyClockIn = await Application.findOne({_id: req.params.id});
-    res.render("clockedin", {
-     baby:babyClockIn,
-     sitters:sitters
-  });
-
-  } catch(error){
-     console.log("error finding a baby!", error);
-     res.status(400).send("unable to find baby from the db!");  
-  } 
-})
-
-router.post("/babyClockIn", async (req, res) => {
+// Updating babies in the database
+router.get("/babyupdate/:id", async (req, res) => {
   try {
-    // Extract the baby's ID from the request body
-    const babyId = req.body.id;
-
-    // Update the baby's data in the database
-    const updatedBaby = await Application.findOneAndUpdate({ _id: babyId }, req.body);
-
-    // Log the updated baby document
-    console.log("Updated baby:", updatedBaby);
-
-    // Redirect to the clockedinlist page
-    res.redirect("/clockedinlist");
+    const babyupdate = await Application.findOne({ _id: req.params.id });
+    res.render("babyupdate", { babies: babyupdate });
   } catch (error) {
-    console.error("Error updating baby in the database:", error);
-    res.status(500).send("Unable to update baby in the database!");
+    console.error("Error finding baby:", error);
+    res.status(400).send("Unable to find baby in the database");
+  }
+});
+
+router.post("/babyupdate", async (req, res) => {
+  try {
+    await Application.findOneAndUpdate({ _id: req.query.id }, req.body);
+    res.redirect("/babieslist");
+  } catch (error) {
+    res.status(404).send("Unable to update baby in the database");
+    console.error("Error updating baby:", error);
+  }
+});
+
+// Get route to render the check-in form
+router.get("/checkin", async (req, res) => {
+  await fetchSitters(); // Wait for sitters to be fetched
+  res.render("admindashboard", { sitters: sitters });
+});
+
+router.post("/checkin", async (req, res) => {
+  try {
+    // Extract check-in form data from the request body
+    const { babyName, babyGender, babyAge, babyLocation, guardianName, arrivalTime, parentsNames, stayDuration, amount, babyNumber, sitter } = req.body;
+
+    // Create a new instance of the Application model
+    const newApplication = new Application({
+      babyName,
+      gender: babyGender,
+      age: babyAge,
+      location: babyLocation,
+      timeOfArrival: arrivalTime,
+      parentsName: parentsNames,
+      amount: parseInt(amount), // Convert amount to number
+      periodOfStay: stayDuration,
+      babyNumber,
+      sitter,
+      clockInTime: new Date(), // Set current time as clock-in time
+      status: "CheckedIn" // Set status to CheckedIn
+    });
+
+    // Save the new application to the database
+    await newApplication.save();
+
+    // Send a success response
+    res.send(`Baby "${babyName}" has been checked in with Sitter "${sitter}".`);
+  } catch (error) {
+    // Handle errors
+    console.error("Error checking in baby:", error);
+    res.status(500).send("Error checking in baby");
   }
 });
 
 
+// Route to fetch the list of checked-in babies
+router.get("/checkedInBabies", async (req, res) => {
+  try {
+    // Find all babies with status "CheckedIn"
+    const checkedInBabies = await Application.find({ status: "CheckedIn" });
+
+    res.render("checkedInBabies", { babies: checkedInBabies });
+  } catch (error) {
+    console.error("Error fetching checked-in babies:", error);
+    res.status(500).send("Internal server error");
+  }
+});
 
 
-// router.post("/babyClockIn", async(req, res)=> {
-//   try {
-//      await Application.findOneAndUpdate({_id: req.query.id}, req.body);
-//      res.redirect("/clockedinlist");
-
-//   } catch (error) {
-//      res.status(404).send("unable to update baby in the db!");  
-//   }
-// })
-
-
+// Route to render the checkout form for a specific baby
+router.get("/babyCheckout/:id", async (req, res) => {
+  try {
+    const baby = await Application.findById(req.params.id);
+    if (!baby) {
+      return res.status(404).send("Baby not found");
+    }
+    res.render("checkoutForm", { baby: baby });
+  } catch (error) {
+    console.error("Error finding baby:", error);
+    res.status(500).send("Internal server error");
+  }
+});
 
 module.exports = router;
+

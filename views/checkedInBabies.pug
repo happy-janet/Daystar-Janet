@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Baby Check-in
+    link(rel='stylesheet', href='/css/checkedinbabies.css') 
+  body
+    header
+      h1 Babies Check-in
+    main
+      table
+        thead
+          tr
+            th Baby Name
+            th Gender
+            th Age
+            th Location
+            th Arrival Time
+            th Parents' Names
+            th Stay Duration
+            th Amount
+            th Sitter
+            th Baby Number
+            th Action
+        tbody
+          each baby in babies 
+            tr
+              td #{baby.babyName}
+              td #{baby.gender}
+              td #{baby.age}
+              td #{baby.location}
+              td #{baby.timeOfArrival}
+              td #{baby.parentsName}
+              td #{baby.periodOfStay}
+              td #{baby.amount}
+              td #{baby.babyNumber}
+              td #{baby.sitter}
+              td
+                form(action=`/babyCheckout/${baby._id}`, method='GET') 
+                  button(type='submit') Check-out
+    footer
+      p © 2024 Baby Check-in

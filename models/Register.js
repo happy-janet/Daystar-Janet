@@ -62,7 +62,9 @@ contact:{
 sittersNumber:{
     type:String,
     trim:true
-}
+},
+username: String,
+
 })
 
 registerSchema.plugin(passportLocalMongoose, {
