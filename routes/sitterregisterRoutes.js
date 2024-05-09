@@ -63,4 +63,26 @@ router.post("/sitterupdate", async (req, res) => {
   }
 });
 
+// route for /sitterCheckin - changes the available status of a sitter to true
+router.post("/sitterCheckin/:id", async (req, res) => {
+	try {
+		await Sitters.findOneAndUpdate({ _id: req.params.id }, { available: false });
+		res.redirect("/sitterslist");
+	} catch (error) {
+		res.status(404).send("Unable to check in sitter in the database.");
+		console.error("Error checking in sitter:", error);
+	}
+});
+
+// route for /sitterCheckout - changes the available status of a sitter to false
+router.post("/sitterCheckout/:id", async (req, res) => {
+	try {
+		await Sitters.findOneAndUpdate({ _id: req.params.id }, { available: true });
+		res.redirect("/sitterslist");
+	} catch (error) {
+		res.status(404).send("Unable to check out sitter in the database.");
+		console.error("Error checking out sitter:", error);
+	}
+});
+
 module.exports = router;

@@ -60,7 +60,7 @@ const sittersSchema = new mongoose.Schema({
     },
 		available:{
 				type:Boolean,
-				default:true
+				default:false
 		},
     username: String,
 })

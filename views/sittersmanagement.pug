@@ -59,7 +59,15 @@ section
             td #{sitter.educationLevel}
             td #{sitter.contact}
             td #{sitter.sittersNumber}
-            td #{sitter.available}
+            td
+              if sitter.available
+                | YES
+                form(action=`/sitterCheckin/${sitter._id}`, method='POST')
+                  button(type='submit') Check-out
+              else
+                | NO
+                form(action=`/sitterCheckout/${sitter._id}`, method='POST')
+                  button(type='submit') Check-in
             td 
               a(href="/sitterupdate/"+ sitter._id) Update
             td 
