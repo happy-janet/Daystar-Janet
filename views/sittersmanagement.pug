@@ -41,6 +41,7 @@ section
           th Education Level
           th Contact
           th Babysitter number
+          th Available
           th Action
           th Delete
       tbody#sitters-list
@@ -58,6 +59,7 @@ section
             td #{sitter.educationLevel}
             td #{sitter.contact}
             td #{sitter.sittersNumber}
+            td #{sitter.available}
             td 
               a(href="/sitterupdate/"+ sitter._id) Update
             td 

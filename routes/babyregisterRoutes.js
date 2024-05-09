@@ -13,7 +13,8 @@ let sitters = [];
 // Fetch sitters from the database
 const fetchSitters = async () => {
   try {
-    sitters = await Sitters.find();
+		// Fetch only available sitters
+    sitters = await Sitters.find({ available: true });
     console.log("Fetched sitters:", sitters);
   } catch (error) {
     console.error("Error fetching sitters:", error);

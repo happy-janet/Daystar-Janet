@@ -58,6 +58,10 @@ const sittersSchema = new mongoose.Schema({
         type:String,
         trim:true
     },
+		available:{
+				type:Boolean,
+				default:true
+		},
     username: String,
 })
 
