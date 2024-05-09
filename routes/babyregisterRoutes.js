@@ -85,7 +85,7 @@ router.post("/babyupdate", async (req, res) => {
 // Get route to render the check-in form
 router.get("/checkin", async (req, res) => {
   await fetchSitters(); // Wait for sitters to be fetched
-  res.render("admindashboard", { sitters: sitters });
+  res.render("checkin", { sitters: sitters });
 });
 
 router.post("/checkin", async (req, res) => {
@@ -135,20 +135,58 @@ router.get("/checkedInBabies", async (req, res) => {
   }
 });
 
-
-// Route to render the checkout form for a specific baby
-router.get("/babyCheckout/:id", async (req, res) => {
+// Route to handle the checkout form submission
+router.post("/babyCheckout/:id", async (req, res) => {
   try {
+    // Find the baby by ID
     const baby = await Application.findById(req.params.id);
     if (!baby) {
+      // If the baby is not found, return a 404 error
       return res.status(404).send("Baby not found");
     }
-    res.render("checkoutForm", { baby: baby });
+    // Update the baby's data to mark them as checked out
+    baby.checkoutTime = req.body.checkoutTime;
+    baby.pickupPerson = req.body.pickupPerson;
+    baby.contact = req.body.contact;
+    baby.status = "CheckedOut";
+    // Save the updated baby data
+    await baby.save();
+    // Redirect to a confirmation page or another appropriate route
+    res.redirect("/checkoutConfirmation");
   } catch (error) {
-    console.error("Error finding baby:", error);
+    // If an error occurs, return a 500 error
+    console.error("Error checking out baby:", error);
     res.status(500).send("Internal server error");
   }
 });
+
+
+// // Route to handle the checkout form submission
+// router.post("/babyCheckout/:id", async (req, res) => {
+//   try {
+//     // Find the baby by ID
+//     const baby = await Application.findById(req.params.id);
+//     if (!baby) {
+//       // If the baby is not found, return a 404 error
+//       return res.status(404).send("Baby not found");
+//     }
+//     // Update the baby's data to mark them as checked out
+//     baby.checkoutTime = req.body.checkoutTime;
+//     baby.pickupPerson = req.body.pickupPerson;
+//     baby.contact = req.body.contact;
+//     baby.status = "CheckedOut";
+//     // Save the updated baby data
+//     await baby.save();
+//     // Redirect to a confirmation page or another appropriate route
+//     res.redirect("/checkoutConfirmation");
+//   } catch (error) {
+//     // If an error occurs, return a 500 error
+//     console.error("Error checking out baby:", error);
+//     res.status(500).send("Internal server error");
+//   }
+// });
+
+
 
 module.exports = router;
 

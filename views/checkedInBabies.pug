@@ -20,9 +20,12 @@ html(lang='en')
             th Parents' Names
             th Stay Duration
             th Amount
-            th Sitter
             th Baby Number
-            th Action
+            th Sitter
+            th Status
+            th Checkout 
+            th Update 
+            th Delete 
         tbody
           each baby in babies 
             tr
@@ -35,9 +38,16 @@ html(lang='en')
               td #{baby.periodOfStay}
               td #{baby.amount}
               td #{baby.babyNumber}
-              td #{baby.sitter}
+              td #{baby.sitters}
+              td #{baby.status}
               td
-                form(action=`/babyCheckout/${baby._id}`, method='GET') 
+                form(action=`/babyCheckout/${baby._id}`, method='POST') 
                   button(type='submit') Check-out
+              td 
+                a(href="/babyupdate/"+ baby._id, class="update-button") Update
+              td 
+                form(method="POST" action="/deleted")
+                  input(type="hidden" name="id" value=baby._id)
+                  button(type="submit") Delete     
     footer
       p © 2024 Baby Check-in

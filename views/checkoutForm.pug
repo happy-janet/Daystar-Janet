@@ -4,38 +4,22 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Baby Checkout
-    link(rel='stylesheet', href='/css/checkout.css')
+    title Checkout Baby
+    link(rel='stylesheet', href='/css/checkoutForm.css')
   body
-    h1 Check Out Baby
-    form(id='checkoutForm', action=`/babyCheckout/${baby._id}`, method='POST')
-      .form-group
-        label(for='babyName') Baby's Name:
-        input#babyName(type='text', name='babyName', value=baby.babyName, readonly)
-      .form-group
+    header
+      h1 Checkout Baby
+    main
+      form(action=`/babyCheckout/${baby._id}`, method='POST')
         label(for='checkoutTime') Checkout Time:
-        input#checkoutTime(type='text', name='checkoutTime', value=currentTime, readonly)
-      .form-group
-        label(for='pickupPerson') Person Picking Up:
-        input#pickupPerson(type='text', name='pickupPerson', required)
-      .form-group
+        input(type='datetime-local', name='checkoutTime', required)
+        br
+        label(for='pickupPerson') Pickup Person:
+        input(type='text', name='pickupPerson', required)
+        br
         label(for='contact') Contact:
-        input#contact(type='text', name='contact', required)
-      input(type='submit', value='Check Out')
-    script.
-      // JavaScript code for setting the current time
-      const currentDate = new Date();
-      const currentTime = currentDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
-
-      // JavaScript code for form validation
-      const form = document.getElementById('checkoutForm');
-
-      form.addEventListener('submit', function(event) {
-        const pickupPersonInput = document.getElementById('pickupPerson');
-        const contactInput = document.getElementById('contact');
-
-        if (!pickupPersonInput.value || !contactInput.value) {
-          alert('Please fill out all required fields.');
-          event.preventDefault();
-        }
-      });
+        input(type='text', name='contact', required)
+        br
+        button(type='submit') Checkout
+    footer
+      p © 2024 Baby Check-in
