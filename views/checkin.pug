@@ -135,7 +135,7 @@ html(lang='en')
         label(for='sitter') Select Sitter:
         select(name='sitter',)
           each sitter in sitters
-            option(value=sitter.name)= sitter.name
+            option(value=sitter.firstName + ' ' + sitter.lastName)= sitter.firstName+' '+sitter.lastName
         br
         label(for='babyNumber') Baby Number:
         input(type='text', name='babyNumber',)

@@ -135,6 +135,19 @@ router.get("/checkedInBabies", async (req, res) => {
   }
 });
 
+// Route to fetch the list of checked-in babies
+router.get("/checkedOutBabies", async (req, res) => {
+  try {
+    // Find all babies with status "CheckedIn"
+    const checkedInBabies = await Application.find({ status: "CheckedOut" });
+
+    res.render("checkedInBabies", { babies: checkedInBabies });
+  } catch (error) {
+    console.error("Error fetching checked-in babies:", error);
+    res.status(500).send("Internal server error");
+  }
+});
+
 // Route to handle the checkout form submission
 router.post("/babyCheckout/:id", async (req, res) => {
   try {
