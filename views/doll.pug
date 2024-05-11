@@ -1,0 +1,10 @@
+// addDollForm.pug
+
+form(action='/dolls', method='POST')
+  label(for='dollName') Doll Name:
+  input(type='text', name='dollName', required)
+  label(for='price') Price:
+  input(type='number', name='price', required)
+  label(for='number') Number:
+  input(type='number', name='number', required)
+  button(type='submit') Add Doll

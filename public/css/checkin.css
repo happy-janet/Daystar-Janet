@@ -4,6 +4,8 @@
     --text-color: white;
     --main-color: #6ccff6;
     --header-color:#2C4E80;
+    --background-color: #9DB2BF;
+    
 }
 main {
     display: flex;
@@ -11,13 +13,15 @@ main {
     align-items: center;
     height: 50%; /* Adjusted height */
     margin: 0 auto; /* Center the form horizontally */
-    background-image: url(../images/background.png);
+    /* background-image: url(../images/background.png); */
+    background-color: var(--background-color);
   }
   
   form {
     width: 400px;
-    background-color: #f8f9fa;
+    background-color: var(--header-color);
     padding: 20px;
+    color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;

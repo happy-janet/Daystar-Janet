@@ -4,14 +4,15 @@
       --text-color: white;
       --main-color: #6ccff6;
       --header-color:#2C4E80;
+      --background-color: #9DB2BF;
+
     }
 
     body {
-      background: var(--header-color);
+      background: var(--background-color);
       color: var(--main-color);
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-image: url(../images/background.png);
     }
 
     .container {

@@ -15,13 +15,14 @@ require("dotenv").config();
 //import register model with user details
 const Register = require("./models/Register")
 const Sitters = require("./models/Sitters")
-
+const Dolls = require("./models/Dolls")
 const port = 3700;
 
 //importing routes
 const  registrationRoutes = require("./routes/babyregisterRoutes")
 const authRoutes = require("./routes/authenticationRoutes")
 const sitterRegistrationRoutes = require("./routes/sitterregisterRoutes")
+const dollsalesRoutes = require("./routes/dollsalesRoutes")
 
   //Instantiations
 const app = express();
@@ -65,6 +66,7 @@ passport.deserializeUser(Register.deserializeUser());
 app.use("/", registrationRoutes);
 app.use("/", authRoutes);
 app.use("/", sitterRegistrationRoutes);
+app.use("/", dollsalesRoutes);
 // app.get("/login", (req, res) => {
 //   res.render("login")
 // });

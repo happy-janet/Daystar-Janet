@@ -166,7 +166,7 @@ router.post("/babyCheckout/:id", async (req, res) => {
     // Save the updated baby data
     await baby.save();
     // Redirect to a confirmation page or another appropriate route
-    res.redirect("/checkoutConfirmation");
+    res.redirect("/checkedOutBabies");
   } catch (error) {
     // If an error occurs, return a 500 error
     console.error("Error checking out baby:", error);
@@ -175,30 +175,6 @@ router.post("/babyCheckout/:id", async (req, res) => {
 });
 
 
-// // Route to handle the checkout form submission
-// router.post("/babyCheckout/:id", async (req, res) => {
-//   try {
-//     // Find the baby by ID
-//     const baby = await Application.findById(req.params.id);
-//     if (!baby) {
-//       // If the baby is not found, return a 404 error
-//       return res.status(404).send("Baby not found");
-//     }
-//     // Update the baby's data to mark them as checked out
-//     baby.checkoutTime = req.body.checkoutTime;
-//     baby.pickupPerson = req.body.pickupPerson;
-//     baby.contact = req.body.contact;
-//     baby.status = "CheckedOut";
-//     // Save the updated baby data
-//     await baby.save();
-//     // Redirect to a confirmation page or another appropriate route
-//     res.redirect("/checkoutConfirmation");
-//   } catch (error) {
-//     // If an error occurs, return a 500 error
-//     console.error("Error checking out baby:", error);
-//     res.status(500).send("Internal server error");
-//   }
-// });
 
 
 

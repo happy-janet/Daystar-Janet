@@ -1,14 +1,26 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const dollsSchema = new mongoose.Schema({
-    dollName:{
-        type:String,
-        trim:true
-    },
-    dollPrice:{
-        type:String,
-        trim:true
-    },
-
+  dollName: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  number: {
+    type: Number,
+    required: true
+  },
+  sold: {
+    type: Boolean,
+    default: false
+  },
+  buyerName: String,
+  salePrice: Number
 });
-module.exports = mongoose.model("Dolls", dollsSchema)
+
+const Dolls = mongoose.model("Dolls", dollsSchema);
+
+module.exports = Dolls;

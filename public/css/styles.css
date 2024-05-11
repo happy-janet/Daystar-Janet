@@ -204,9 +204,9 @@ span{
     overflow: hidden;
     white-space: nowrap;
 }
-.text-animation span{
-    position: relative;
-}
+/* .text-animation span{
+    position: relative; */
+/* }
 .text-animation span::before{
     content:"Software Engineer";
     color: var(--main-color);
@@ -273,7 +273,7 @@ span{
     85%{
         width: calc(100% + 8px);
     }
-}
+} */
 .heading{
     font-size: 8rem;
     text-align: center;

@@ -14,13 +14,14 @@
     --text-color: white;
     --main-color: #6ccff6;
     --header-color:#2C4E80;
+    --background-color: #9DB2BF;
 }
 body {
-    background: var(--bg-color);
+    background: var(--background-color);
     color: var(--text-color);
     background-size: cover;
     height: 800px;
-    background-image: url(../images/background.png);
+    /* background-image: url(../images/background.png); */
 }
 
 .header{

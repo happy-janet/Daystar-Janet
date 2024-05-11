@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Sell Doll
+    link(rel='stylesheet', href='/css/selldoll.css')
+  body
+    header
+      h1 Sell Doll
+    main
+      form(action='/sell', method='POST')
+        label(for='dollName') Doll Name:
+        input(type='text', id='dollName', name='dollName',)
+        br
+        label(for='price') Price:
+        input(type='number', id='price', name='price',)
+        br
+        button(type='submit') Sell
+    footer
+      p © 2024 Dolls Stall
