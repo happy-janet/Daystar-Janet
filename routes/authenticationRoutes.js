@@ -5,8 +5,6 @@ const passport = require("passport");
 //import model
 const Register = require("../models/Register")
 const Dolls = require("../models/Dolls")
-const Babypayments = require("../models/Babypayment")
-
 
 router.get("/register", (req, res) =>{
     res.render("adminregistration");
@@ -88,21 +86,6 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     res.render("income")
  })
 
-
-//  router.get("/dollstall", (req, res) =>{
-//     res.render("dollstall")
-//  })
-
-//  router.get("/search", (req, res) =>{
-//     const query = req.query.q;
-//     const results = data.filter(item => item.name.includes(query));
-//     res.json(results);
-//  })
-
-// Assuming you have already set up Express and configured your app
-
-// Define a route for handling search queries
-// Define a route for handling search queries
 
 router.get('/search', (req, res) => {
     // Retrieve the search query from the request parameters

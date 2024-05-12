@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Payment Page
+    link(rel='stylesheet', href='/css/payment.css')
+  body
+    header
+      h1 Payment Page
+    main
+      form(action='/payment', method='POST')
+        label(for='sitterName') Sitter's Name:
+        input(type='text', id='sitterName', name='sitterName',)
+        br
+        label(for='amount') Amount:
+        input(type='number', id='amount', name='amount',)
+        br
+        label(for='paymentMethod') Payment Method:
+        select(id='paymentMethod', name='paymentMethod',)
+          option(value='cash') Cash
+          option(value='bankTransfer') Bank Transfer
+        br
+        button(type='submit') Submit Payment
+    footer
+      p © 2024 Your Company Name
