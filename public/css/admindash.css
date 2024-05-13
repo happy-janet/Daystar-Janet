@@ -1,0 +1,150 @@
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --header-color: #470a21;
+    --background-color: #fbd1da;
+    --main-color: #d32b60;
+}
+
+/* Body */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header.navbar.navbar-dark.bg-dark {
+    background-color: var(--header-color);
+}
+
+header .navbar-brand {
+    color: var(--background-color);
+}
+
+header .navbar-toggler-icon {
+    color: var(--background-color);
+}
+
+/* Offcanvas */
+.offcanvas-header {
+    background-color: var(--second-bg-color);
+}
+
+.offcanvas-title {
+    color: var(--background-color);
+}
+
+.offcanvas .btn-close {
+    color: var(--background-color);
+}
+
+.offcanvas-body {
+    background-color: var(--second-bg-color);
+}
+
+.offcanvas .navbar-nav .nav-link {
+    color: var(--background-color);
+}
+
+.offcanvas .dropdown-menu {
+    background-color: var(--header-color);
+}
+
+.offcanvas .dropdown-item {
+    color: var(--background-color);
+}
+
+.offcanvas .dropdown-item:hover {
+    background-color: #6c757d;
+}
+
+/* Navbar */
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* Navbar items */
+.navbar-nav {
+    margin: auto;
+}
+
+.nav-link {
+    color: #C6DCBA;
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.dropdown-menu {
+    background-color: #343a40;
+}
+
+.dropdown-item {
+    color: #C6DCBA;
+}
+
+.dropdown-item:hover {
+    background-color: #6c757d;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #C6DCBA;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Cards */
+.card {
+    border: 2px solid var(--text-color);
+    background-color: var(--header-color);
+    color: var(--text-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translate(0, -5px);
+}
+
+/* Set custom widths for some cards */
+.registered-sitters-card,
+.available-sitters-card,
+.checked-in-babies-card,
+.checked-out-babies-card,
+.available-dolls-card,
+.sold-dolls-card,
+.procurement-total-card,
+.total-amount-paid-card {
+    width: calc(33.33% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+/* Adjust width for two cards per row */
+@media (min-width: 868px) {
+    .registered-sitters-card,
+    .available-sitters-card,
+    .checked-in-babies-card,
+    .checked-out-babies-card,
+    .available-dolls-card,
+    .sold-dolls-card {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Adjust width for three cards on the last row */
+@media (min-width: 992px) {
+    .procurement-total-card,
+    .total-amount-paid-card {
+        width: calc(33.33% - 40px);
+    }
+}

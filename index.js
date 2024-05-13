@@ -16,6 +16,7 @@ require("dotenv").config();
 const Register = require("./models/Register")
 const Sitters = require("./models/Sitters")
 const Dolls = require("./models/Dolls")
+const Procurement = require("./models/Procurement")
 const port = 3700;
 
 //importing routes
@@ -23,6 +24,7 @@ const  registrationRoutes = require("./routes/babyregisterRoutes")
 const authRoutes = require("./routes/authenticationRoutes")
 const sitterRegistrationRoutes = require("./routes/sitterregisterRoutes")
 const dollsalesRoutes = require("./routes/dollsalesRoutes")
+const procurements = require("./routes/procurements")
 
   //Instantiations
 const app = express();
@@ -67,70 +69,7 @@ app.use("/", registrationRoutes);
 app.use("/", authRoutes);
 app.use("/", sitterRegistrationRoutes);
 app.use("/", dollsalesRoutes);
-// app.get("/login", (req, res) => {
-//   res.render("login")
-// });
-// app.use("/login", loginRoutes);
-
-//this is a route
-
-// app.get("/", (req, res) => {
-//   res.send("Homepage! Hello world.");
-// });
-
-// app.get("/about", (req, res) => {
-//   res.send("About page. Nice.");
-// });
-
-// //syntax of a route
-// //   app.METHOD(PATH, HANDLER);
-
-// app.get("/course", (req, res) => {
-//   res.send("You have hit the courses page");
-// });
-
-// app.get('/books/:bookId', (req, res) => {
-//   res.send(req.params.bookId);
-//   console.log(req.params.bookId)
-// });
-
-// app.get('/students/:name', (req, res) => {
-//   res.send( "This is my students name " + req.params.name);
-// });
-
-// app.get("/students/:studentId", (req, res) => {
-//   res.send("xx " + req.params.studentId);
-//   console.log("studentId " + req.params);
-// });
-
-// //querry params
-// app.get("/students", (req, res) => {
-//   res.send("This is class " + req.query.class + "Cohort " + req.query.cohort);
-// });
-
-// app.get("/babies", (req, res) => {
-//   res.send("This is a baby " + req.query.name + "age " + req.query.age);
-// });
-
-// app.get("/index", (req, res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
-
-// app.get("/registerbaby", (req, res) => {
-//   res.sendFile(__dirname + "/register_baby.html");
-// });
-
-// app.post("/registerbaby", (req, res) => {
-//   console.log(req.body)
-//   let baby=req.body
-//   // res.redirect("/index")
-//   res.json({message:"baby registered",baby})
-// })  
-
-
-
-
-
+app.use("/", procurements);
 
 //For invalid routes
 app.get("*", (req, res) => {

@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Procurements
+    link(rel='stylesheet', href='/css/procurements.css')
+  body
+    header
+      h1 Procurements
+    main
+      table
+        caption Procured Items
+        thead
+          tr
+            th Item
+            th Quantity
+            th Price
+            th Supplier
+            th Date
+        tbody
+          each procurement in procurements
+            tr
+              td #{procurement.item}
+              td #{procurement.quantity}
+              td #{procurement.price}
+              td #{procurement.supplier}
+              td #{procurement.date.toLocaleString()} 
+    footer
+      p © 2024 Daycare Center

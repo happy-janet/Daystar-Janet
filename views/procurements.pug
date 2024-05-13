@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Daycare Procurements
+    link(rel='stylesheet', href='/css/procurement.css')
+  body
+    header
+      h1 Daycare Procurements
+    main
+      form(action='/addprocurement', method='POST')
+        label(for='item') Item:
+        input(type='text', id='item', name='item')
+        br
+        label(for='quantity') Quantity:
+        input(type='number', id='quantity', name='quantity')
+        br
+        label(for='price') Price:
+        input(type='number', id='price', name='price')
+        br
+        label(for='supplier') Supplier:
+        input(type='text', id='supplier', name='supplier')
+        br
+        button(type='submit') Add Procurement
+    footer
+      p © 2024 Your Company Name

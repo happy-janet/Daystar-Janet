@@ -4,7 +4,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Sitters Management
   link(rel='stylesheet' href='/css/sittersmanagment.css')
-
+  <script src="https://kit.fontawesome.com/d4a6120677.js" crossorigin="anonymous"></script>
 header
     nav
       ul
@@ -69,11 +69,11 @@ section
                 form(action=`/sitterCheckout/${sitter._id}`, method='POST')
                   button(type='submit') Check-in
             td 
-              a(href="/sitterupdate/"+ sitter._id) Update
+              a(href="/sitterupdate/"+ sitter._id) <i class="fa-solid fa-pen-to-square"></i>
             td 
               form(method="POST" action="/delete")
                 input(type="hidden" name="id" value=sitter._id)
-                button(type="submit") Delete 
+                button(type="submit") <i class="fa-solid fa-trash"></i>
 script(src='../public/js/sittersmanagement.js')
 
         

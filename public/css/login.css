@@ -13,15 +13,14 @@
     --second-bg-color: #131313;
     --text-color: white;
     --main-color: #6ccff6;
-    --header-color:#2C4E80;
-    --background-color: #9DB2BF;
+    --header-color:#414833;
+    --background-color: #a6c48a;
 }
 body {
     background: var(--background-color);
     color: var(--text-color);
     background-size: cover;
     height: 800px;
-    /* background-image: url(../images/background.png); */
 }
 
 .header{
@@ -48,7 +47,7 @@ body {
     transform: scale(1.1);
 }
 .logo span{
-    text-shadow: 0 0 25px var(--main-color);
+    text-shadow: 0 0 25px var(--background-color);
 }
 
 #menu-icon{
@@ -117,7 +116,7 @@ form p {
     font-size: 2rem;
     margin-top: 0;
     margin-bottom: 25px;
-    text-shadow: 2px 2px 4px var(--main-color);
+    text-shadow: 2px 2px 4px var(--background-color);
 }
 
 form a {
@@ -127,7 +126,7 @@ form a {
 }
 
 form a:hover {
-    text-shadow: 2px 2px 6px var(--main-color);
+    text-shadow: 2px 2px 6px var(--background-color);
 }
 
 form a:active {
@@ -192,7 +191,7 @@ footer {
   }
 
 .login-button {
-    background-color: var(--main-color); 
+    background-color: var(--background-color); 
     color: #FFFFFF; 
     border: none;
     border-radius: 5px;

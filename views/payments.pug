@@ -11,13 +11,16 @@ html(lang='en')
     main
       form(action='/payment', method='POST')
         label(for='sitterName') Sitter's Name:
-        input(type='text', id='sitterName', name='sitterName',)
+        input(type='text', id='sitterName', name='sitterName')
+        br
+        label(for='numberOfBabies') Number of Babies
+        input(type='numberOfBabies', id='numberOfBabies', name='numberOfBabies')
         br
         label(for='amount') Amount:
-        input(type='number', id='amount', name='amount',)
+        input(type='number', id='amount', name='amount')
         br
         label(for='paymentMethod') Payment Method:
-        select(id='paymentMethod', name='paymentMethod',)
+        select(id='paymentMethod', name='paymentMethod')
           option(value='cash') Cash
           option(value='bankTransfer') Bank Transfer
         br
