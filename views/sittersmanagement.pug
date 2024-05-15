@@ -63,11 +63,11 @@ section
               if sitter.available
                 | YES
                 form(action=`/sitterCheckin/${sitter._id}`, method='POST')
-                  button(type='submit') Check-out
+                  button.check-in-button(type='submit') Check-out
               else
                 | NO
                 form(action=`/sitterCheckout/${sitter._id}`, method='POST')
-                  button(type='submit') Check-in
+                  button.check-in-button(type='submit') Check-in
             td 
               a(href="/sitterupdate/"+ sitter._id) <i class="fa-solid fa-pen-to-square"></i>
             td 

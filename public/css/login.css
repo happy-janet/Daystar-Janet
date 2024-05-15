@@ -12,9 +12,9 @@
     --bg-color: #080808;
     --second-bg-color: #131313;
     --text-color: white;
-    --main-color: #6ccff6;
-    --header-color:#414833;
-    --background-color: #a6c48a;
+    --header-color: #470a21;
+    --background-color: #fbd1da;
+    --main-color: #d32b60;
 }
 body {
     background: var(--background-color);

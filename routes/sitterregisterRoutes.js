@@ -4,6 +4,7 @@ const router = express.Router();
 const connectEnsureLogin = require("connect-ensure-login");
 const Sitters = require("../models/Sitters");
 
+
 router.get("/registersitter", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
   res.render("register_sitter");
 });
@@ -83,6 +84,46 @@ router.post("/sitterCheckout/:id", async (req, res) => {
 		res.status(404).send("Unable to check out sitter in the database.");
 		console.error("Error checking out sitter:", error);
 	}
+});
+
+// Route to display the payment management page
+router.get('/payments', async (req, res) => {
+  try {
+      // Fetch all sitters from the database
+      const sitters = await Sitters.find();
+      res.render('payments', { sitters });
+  } catch (error) {
+      console.error("Error fetching sitters:", error);
+      res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
+// Route to update the number of babies attended by a sitter and calculate total payment
+router.post('/payments/:id', async (req, res) => {
+  const sitterId = req.params.id;
+  const { babiesAttended } = req.body;
+
+  try {
+      // Find the sitter in the database
+      const sitter = await Sitters.findById(sitterId);
+
+      if (!sitter) {
+          return res.status(404).send('Sitter not found.');
+      }
+
+      // Update the number of babies attended and calculate total payment
+      sitter.babiesAttended = babiesAttended;
+      sitter.totalPayment = babiesAttended * 3000;
+
+      // Save the updated sitter to the database
+      await sitter.save();
+
+      res.redirect('/payments');
+  } catch (error) {
+      console.error('Error updating payment:', error);
+      res.status(500).send('Internal server error');
+  }
 });
 
 module.exports = router;

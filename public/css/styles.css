@@ -12,8 +12,9 @@
     --bg-color: #080808;
     --second-bg-color: #131313;
     --text-color: white;
-    --header-color:#414833;
-    --background-color: #a6c48a;
+    --header-color: #470a21;
+    --background-color: #fbd1da;
+    --main-color: #d32b60;
 }
 
 html{
@@ -33,6 +34,7 @@ html{
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+    text-decoration: none;
 }
 .logo{
     font-size: 3rem;
@@ -54,12 +56,14 @@ html{
     font-weight: 500;
     transition: 0.3s ease;
     border-bottom: 3px solid transparent;
+    text-decoration: none;
 
 }
 .navbar a:hover,
 .navbar a.active{
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
+    text-decoration: none;
 }
 #menu-icon{
     font-size: 3.6rem;
@@ -78,6 +82,7 @@ section{
     justify-content: center;
     gap: 15rem;
     color: white;
+    text-decoration: none;
 }
 
 .home::before {
@@ -91,7 +96,7 @@ section{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%;
-    /* filter: blur(5px); */
+    filter: blur(1px);
     z-index: -1; 
     background-color: var(--header-color);
 }
@@ -355,7 +360,7 @@ span{
     position:relative ;
     bottom: 0;
     width: 100%;
-    padding: 40px 0;
+    padding: 10px 0;
     background-color: var(--second-bg-color);
 }
 .footer .social{
@@ -468,6 +473,7 @@ span{
         border-left: 2px solid var(--main-color);
         border-bottom: 2px solid var(--main-color);
         display: none;
+        text-decoration: none;
     }
     .navbar.active{
         display: block;
@@ -477,6 +483,7 @@ span{
         font-size: 2rem;
         margin: 3rem 0;
         color: white;
+        text-decoration: none;
     }
     .home{
         flex-direction: column-reverse;

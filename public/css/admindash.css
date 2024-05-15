@@ -14,16 +14,19 @@ body {
 }
 
 /* Header */
-header.navbar.navbar-dark.bg-dark {
+.navbar {
     background-color: var(--header-color);
 }
 
 header .navbar-brand {
     color: var(--background-color);
 }
-
+.navbar-toggler{
+    color: var(--bg-color);
+    background-color: var(--background-color);
+}
 header .navbar-toggler-icon {
-    color: var(--background-color);
+    color: var(--bg-color);
 }
 
 /* Offcanvas */
@@ -31,16 +34,17 @@ header .navbar-toggler-icon {
     background-color: var(--second-bg-color);
 }
 
+
 .offcanvas-title {
     color: var(--background-color);
 }
 
 .offcanvas .btn-close {
-    color: var(--background-color);
+    color: var(--bg-color);
 }
 
 .offcanvas-body {
-    background-color: var(--second-bg-color);
+    background-color: var(--header-color);
 }
 
 .offcanvas .navbar-nav .nav-link {
@@ -48,7 +52,7 @@ header .navbar-toggler-icon {
 }
 
 .offcanvas .dropdown-menu {
-    background-color: var(--header-color);
+    background-color: var(--bg-color)
 }
 
 .offcanvas .dropdown-item {
@@ -75,7 +79,10 @@ header .navbar-toggler-icon {
 }
 
 .nav-link:hover {
-    color: #fff;
+    color: var(--bg-color);
+    text-decoration: none;
+    padding: 5px;
+    background-color: var(--second-bg-color);
 }
 
 .dropdown-menu {
@@ -105,7 +112,7 @@ header .navbar-toggler-icon {
 /* Cards */
 .card {
     border: 2px solid var(--text-color);
-    background-color: var(--header-color);
+    background-color: var(--main-color);
     color: var(--text-color);
     transition: transform 0.3s ease-in-out;
 }

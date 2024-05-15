@@ -4,14 +4,14 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Dolls Sales System
-    link(rel='stylesheet', href='/css/dolls.css') 
+    link(rel='stylesheet', href='/css/dollsales.css') 
   body
     header
       h1 Dolls Sales System
     #summary
       p Total Dolls Available: #{totalDollsAvailable}
       p Total Dolls Sold: #{totalDollsSold}
-      a(href='/add') Add New Doll
+      a(href='/dolls') Add New Doll
     table#availableDolls
       caption Available Dolls
       thead
@@ -28,17 +28,4 @@ html(lang='en')
             td #{doll.number}
             td
               a.sell-button(href=`/sell/${doll._id}`) Sell Now
-    table#soldDolls
-      caption Sold Dolls
-      thead
-        tr
-          th Doll Number
-          th Buyer Name
-          th Sale Price
-      tbody
-        each soldDoll in soldDolls
-          tr
-            td #{soldDoll.number}
-            td #{soldDoll.buyerName}
-            td #{soldDoll.salePrice.toFixed(2)}
-    script(src='/dolls.js') 
+    

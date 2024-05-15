@@ -4,18 +4,14 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Sell Doll
-    link(rel='stylesheet', href='/css/selldoll.css')
+    link(rel='stylesheet', href='/css/selldoll.css') 
   body
     header
       h1 Sell Doll
     main
-      form(action='/sell', method='POST')
-        label(for='dollName') Doll Name:
-        input(type='text', id='dollName', name='dollName',)
-        br
-        label(for='price') Price:
-        input(type='number', id='price', name='price',)
-        br
+      form(action=`/sell/${doll._id}`, method='POST')
+        label(for='buyerName') Buyer Name:
+        input(type='text', name='buyerName')
+        label(for='salePrice') Sale Price:
+        input(type='number', name='salePrice', value=doll.price, readonly)
         button(type='submit') Sell
-    footer
-      p © 2024 Dolls Stall

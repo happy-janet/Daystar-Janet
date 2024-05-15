@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Sold Dolls
+    link(rel='stylesheet', href='/css/soldDolls.css') 
+  body
+    header
+      h1 Sold Dolls
+    main
+      // Table for displaying sold dolls
+      table
+        caption Sold Dolls
+        thead
+          tr
+            th Doll Name
+            th Buyer Name
+            th Sale Price
+        tbody
+          each soldDoll in soldDolls
+            tr
+              td #{soldDoll.dollName}
+              td #{soldDoll.buyerName}
+              td #{soldDoll.salePrice}
+
+    script(src='/scripts/soldDolls.js')

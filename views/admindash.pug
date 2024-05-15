@@ -8,12 +8,12 @@ head
   // Custom CSS
   link(rel='stylesheet' href='/css/admindash.css')
 header
-  nav.navbar.navbar-dark.bg-dark
-    header.navbar.navbar-dark.bg-dark
+  nav.navbar
+    header.navbar
       .container-fluid
         h1.navbar-brand Admin Dashboard
     .container-fluid
-      a.navbar-brand(href='#' style='color: #C6DCBA;') Daystar Daycare
+      a.navbar-brand Daystar Daycare
       button.navbar-toggler(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasDarkNavbar' aria-controls='offcanvasDarkNavbar' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #offcanvasDarkNavbar.offcanvas.offcanvas-end.text-bg-dark(tabindex='-1' aria-labelledby='offcanvasDarkNavbarLabel')
@@ -23,36 +23,42 @@ header
         .offcanvas-body
           ul.navbar-nav
             li.nav-item
-              a.nav-link.active(aria-current='page' href='index.html') Home
+              a.nav-link.active(aria-current='page' href='/') Home
             li.nav-item
               a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Sitters 
               ul.dropdown-menu.dropdown-menu-dark
                 li
-                  a.dropdown-item(href='blog-1.html') Registered Sitters
+                  a.dropdown-item(href='/sitterslist') Registered Sitters
                 .sidebar
                   li
-                    a.dropdown-item.active(href='blog-2.html')
+                    a.dropdown-item.active(href='/payments')
                       h5.mt-3 Sitters Payment 
             li.nav-item
               a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Babies
               ul.dropdown-menu.dropdown-menu-dark
                 li
-                  a.dropdown-item(href='blog-1.html') Check in
+                  a.dropdown-item(href='/checkin') Check in
                 .sidebar
                   li
-                    a.dropdown-item.active(href='blog-2.html')
-                      h5.mt-3 Check out
+                    a.dropdown-item.active(href='/checkedInBabies')
+                      h5.mt-3 Checked In Babies
+                  li
+                    a.dropdown-item.active(href='/checkedOutBabies')
+                      h5.mt-3 Check out    
             li.nav-item
               a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Doll Stall
               ul.dropdown-menu.dropdown-menu-dark
                 li
-                  a.dropdown-item(href='blog-1.html') Add Doll
+                  a.dropdown-item(href='/dolls') Add Doll
                 .sidebar
                   li
-                    a.dropdown-item.active(href='blog-2.html')
-                      h5.mt-3 Sold Dolls 
+                    a.dropdown-item.active(href='/dolls-table')
+                      h5.mt-3 Available Dolls
+                    li
+                    a.dropdown-item.active(href='/sold-dolls')
+                      h5.mt-3 Sold Dolls   
             li.nav-item
-              a.nav-link(href='about.html') About                   
+              a.nav-link(href='/logout') Logout                   
 // Dashboard Body
 .container-fluid
   .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-4

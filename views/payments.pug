@@ -3,27 +3,23 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Payment Page
-    link(rel='stylesheet', href='/css/payment.css')
+    title Sitter Payments Management
+    link(rel='stylesheet', href='/css/payments.css')
   body
     header
-      h1 Payment Page
+      h1 Sitter Payments Management
     main
-      form(action='/payment', method='POST')
-        label(for='sitterName') Sitter's Name:
-        input(type='text', id='sitterName', name='sitterName')
-        br
-        label(for='numberOfBabies') Number of Babies
-        input(type='numberOfBabies', id='numberOfBabies', name='numberOfBabies')
-        br
-        label(for='amount') Amount:
-        input(type='number', id='amount', name='amount')
-        br
-        label(for='paymentMethod') Payment Method:
-        select(id='paymentMethod', name='paymentMethod')
-          option(value='cash') Cash
-          option(value='bankTransfer') Bank Transfer
-        br
-        button(type='submit') Submit Payment
-    footer
-      p © 2024 Your Company Name
+      h2 Sitter Payments
+      table
+        thead
+          tr
+            th Sitter Name
+            th Babies Attended
+            th Payment (UGX)
+        tbody
+          each sitter in sitters
+            tr
+              td #{sitter.firstName} #{sitter.lastName}
+              td #{sitter.babiesAttended}
+              td #{sitter.babiesAttended * 3000}
+    script(src='../public/js/paymentsmanagement.js')

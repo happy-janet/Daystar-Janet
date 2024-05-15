@@ -9,8 +9,16 @@ const dollsSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  salePrice: {
+    type: Number,
+    required: true
+  },
   number: {
     type: Number,
+    required: true
+  },
+  buyerName: {
+    type: String,
     required: true
   },
   sold: {

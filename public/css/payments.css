@@ -1,0 +1,28 @@
+/* paymentsmanagement.css */
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: var(--header-color);
+    color: var(--text-color);
+  }
+  
+  tr:nth-child(even) {
+    background-color: var(--second-bg-color);
+  }
+  
+  tr:hover {
+    background-color: var(--main-color);
+    color: white;
+  }
+  

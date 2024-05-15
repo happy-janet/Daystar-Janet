@@ -115,6 +115,7 @@ router.post("/checkin", async (req, res) => {
 
     // Send a success response
     res.send(`Baby "${babyName}" has been checked in with Sitter "${sitter}".`);
+    res.redirect("/admindash")
   } catch (error) {
     // Handle errors
     console.error("Error checking in baby:", error);

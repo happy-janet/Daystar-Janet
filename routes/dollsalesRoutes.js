@@ -3,7 +3,7 @@ const router = express.Router();
 const Dolls = require("../models/Dolls");
 
 // Route to render the form for adding a new doll
-router.get('/add', (req, res) => {
+router.get('/dolls', (req, res) => {
     res.render('doll'); // Assuming 'addDollForm' is the name of your Pug template file
   });
   
@@ -19,28 +19,65 @@ router.post('/dolls', async (req, res) => {
       res.status(500).send('Internal server error');
     }
   });
+
+  // Route to render the sell form for a specific doll
+router.get('/sell/:dollId', async (req, res) => {
+  try {
+      // Find the doll in the database
+      const doll = await Dolls.findById(req.params.dollId);
+      
+      // Render the sell form and pass the doll data to the template
+      res.render('sellDoll', { doll });
+  } catch (error) {
+      console.error('Error rendering sell form:', error);
+      res.status(500).send('Internal server error');
+  }
+});
+
   
-  // Route to handle selling off dolls
-router.post('/sell/:id', async (req, res) => {
-    try {
-        const { price } = req.body;
-        const dollId = req.params.id;
-        // Assuming you have a field in your Doll schema to mark it as sold
-        const doll = await Dolls.findByIdAndUpdate(dollId, { sold: true, price: price });
-        if (!doll) {
-            return res.status(404).send("Doll not found");
-        }
-        res.redirect("/dolls"); // Redirect to dolls page or any other appropriate route
-    } catch (error) {
-        console.error("Error selling doll:", error);
-        res.status(500).send("Internal server error");
+ // Route to sell a doll
+router.post('/sell/:dollId', async (req, res) => {
+  try {
+    const dollId = req.params.dollId;
+    const { buyerName, salePrice } = req.body;
+
+    // Find the doll in the database
+    const doll = await Dolls.findById(dollId);
+
+    if (!doll) {
+      return res.status(404).send('Doll not found.');
     }
+
+    // Mark the doll as sold and update the buyer name and sale price
+    doll.sold = true;
+    doll.buyerName = buyerName;
+    doll.salePrice = salePrice;
+
+    // Save the updated doll to the database
+    await doll.save();
+
+    // Redirect to the route for displaying sold dolls
+    res.redirect('/sold-dolls');
+  } catch (error) {
+    console.error('Error selling doll:', error);
+    res.status(500).send('Internal server error');
+  }
 });
 
 
-  
-  
-  
+// Route to display sold dolls
+router.get('/sold-dolls', async (req, res) => {
+  try {
+    // Query the database for sold dolls
+    const soldDolls = await Dolls.find({ sold: true });
+
+    // Render the sold dolls page and pass the sold dolls data to the template
+    res.render('solddolls', { soldDolls });
+  } catch (error) {
+    console.error('Error fetching sold dolls:', error);
+    res.status(500).send('Internal server error');
+  }
+});
   // Route to delete a doll
   router.delete('/dolls/:id', async (req, res) => {
     try {

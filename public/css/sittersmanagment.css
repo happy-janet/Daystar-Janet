@@ -9,8 +9,9 @@
   --bg-color: #080808;
   --second-bg-color: #131313;
   --text-color: white;
-  --main-color: #6ccff6;
-  --header-color:#2C4E80;
+  --header-color: #470a21;
+    --background-color: #fbd1da;
+    --main-color: #d32b60;
 }
 
 /* Global styles */
@@ -45,7 +46,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #0056b3;
+  background-color: var(--main-color);
 }
 
 h1 {
@@ -123,7 +124,7 @@ a.update-btn {
   background-color: #ffc107;
   color: #212529;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 10px; 
   border-radius: 5px;
   text-decoration: none;
 }
@@ -131,5 +132,18 @@ a.update-btn {
 a.update-btn:hover {
   background-color: #e0a800;
 }
+/* Styles for the check-in button */
+button.check-in-button {
+  background-color: #218838; /* Use the main color variable for background */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 5px 10px; /* Adjust padding */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Add smooth transition effect */
+  border-radius: 5px;
+}
 
+button.check-in-button:hover {
+  background-color: #218838; /* Darken the background color on hover */
+}
 

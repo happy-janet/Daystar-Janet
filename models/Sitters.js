@@ -63,6 +63,14 @@ const sittersSchema = new mongoose.Schema({
 				default:false
 		},
     username: String,
+    babiesAttended: {
+        type: Number,
+        default: 0
+    },
+    totalPayment: {
+        type: Number,
+        default: 0
+    },
 })
 
 module.exports = mongoose.model("Sitters", sittersSchema)
