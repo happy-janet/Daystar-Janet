@@ -65,8 +65,8 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     // Fetch data from the database
     const registeredSittersCount = await Sitters.countDocuments({});
     const availableSittersCount = await Sitters.countDocuments({ available: true });
-    const checkedInBabiesCount = await Application.countDocuments({ checkedIn: true });
-    const checkedOutBabiesCount = await Application.countDocuments({ checkedOut: true });
+    const checkedInBabiesCount = await Application.countDocuments({ status: 'CheckedIn' });
+    const checkedOutBabiesCount = await Application.countDocuments({ status: 'CheckedOut' });
     const availableDollsCount = await Dolls.countDocuments({ available: true });
     const soldDollsCount = await Dolls.countDocuments({ sold: true });
 

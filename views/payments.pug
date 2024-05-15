@@ -16,10 +16,14 @@ html(lang='en')
             th Sitter Name
             th Babies Attended
             th Payment (UGX)
+            th Action
         tbody
           each sitter in sitters
             tr
               td #{sitter.firstName} #{sitter.lastName}
               td #{sitter.babiesAttended}
               td #{sitter.babiesAttended * 3000}
+              td
+                form(action=`/payments/${sitter._id}`, method='POST')
+                  button.check-in-button(type='submit') Pay
     script(src='../public/js/paymentsmanagement.js')

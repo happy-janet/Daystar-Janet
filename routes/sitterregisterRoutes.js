@@ -92,8 +92,13 @@ router.post("/sitterCheckout/:id", async (req, res) => {
 // Route to display the payment management page
 router.get('/payments', async (req, res) => {
   try {
-      // Fetch all sitters from the database
-      const sitters = await Sitters.find();
+      // Fetch all sitters from the database and for each one count the total applications with that sitterID and status 'checkedIn'
+      let sitters = await Sitters.find({});
+			sitters = await Promise.all(sitters.map(async sitter => {
+				const babiesAttended = await Application.countDocuments({ sitterId: sitter._id, paid: false });
+				return { ...sitter.toObject(), babiesAttended };
+			}));
+
       res.render('payments', { sitters });
   } catch (error) {
       console.error("Error fetching sitters:", error);
@@ -105,7 +110,6 @@ router.get('/payments', async (req, res) => {
 // Route to update the number of babies attended by a sitter and calculate total payment
 router.post('/payments/:id', async (req, res) => {
   const sitterId = req.params.id;
-  const { babiesAttended } = req.body;
 
   try {
       // Find the sitter in the database
@@ -115,12 +119,8 @@ router.post('/payments/:id', async (req, res) => {
           return res.status(404).send('Sitter not found.');
       }
 
-      // Update the number of babies attended and calculate total payment
-      sitter.babiesAttended = babiesAttended;
-      sitter.totalPayment = babiesAttended * 3000;
-
-      // Save the updated sitter to the database
-      await sitter.save();
+      // Update all applications with the sitterId and paid false to true
+			await Application.updateMany({ sitterId, paid: false }, { paid: true });
 
       res.redirect('/payments');
   } catch (error) {
