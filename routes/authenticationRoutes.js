@@ -5,6 +5,8 @@ const passport = require("passport");
 //import model
 const Register = require("../models/Register")
 const Dolls = require("../models/Dolls")
+const Sitters = require("../models/Sitters");
+const Application = require("../models/Application");
 
 router.get("/register", (req, res) =>{
     res.render("adminregistration");
@@ -58,8 +60,43 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     res.render("index")
  })
 
- router.get("/admindash", (req, res) =>{
-    res.render("admindash")
+ router.get("/admindash", async (req, res) =>{
+  try {
+    // Fetch data from the database
+    const registeredSittersCount = await Sitters.countDocuments({});
+    const availableSittersCount = await Sitters.countDocuments({ available: true });
+    const checkedInBabiesCount = await Application.countDocuments({ checkedIn: true });
+    const checkedOutBabiesCount = await Application.countDocuments({ checkedOut: true });
+    const availableDollsCount = await Dolls.countDocuments({ available: true });
+    const soldDollsCount = await Dolls.countDocuments({ sold: true });
+
+    // Calculate procurement total by summing up the prices of all sold dolls
+    const soldDolls = await Dolls.find({ sold: true });
+    const procurementTotal = soldDolls.reduce((total, doll) => total + doll.salePrice, 0) || 0;
+
+    // Calculate total amount paid to sitters by summing up the payments made to all sitters
+    const sittersPayments = await Sitters.aggregate([
+      { $group: { _id: null, totalPayments: { $sum: "$totalPayment" } } }
+    ]);
+    const totalAmountPaidToSitters = sittersPayments.length > 0 ? sittersPayments[0].totalPayments : 0;
+
+    // Render the dashboard page and pass the data variables
+    res.render("admindash", {
+      registeredSittersCount,
+      availableSittersCount,
+      checkedInBabiesCount,
+      checkedOutBabiesCount,
+      availableDollsCount,
+      soldDollsCount,
+      procurementTotal,
+      totalAmountPaidToSitters
+    });
+  } catch (error) {
+    // Log the error for debugging
+    console.error("Error fetching data for dashboard:", error);
+    // Render an error page or send an error response
+    res.status(500).send("Internal server error");
+  }
  })
 
  router.get("/sittersmanagement", (req, res) =>{
