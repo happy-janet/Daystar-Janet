@@ -132,6 +132,14 @@ const applicationSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+		sitterId: {
+				type: String,
+				trim: true
+		},
+		paid: {
+			type: Boolean,
+			default: false
+		},
     checkoutTime: {
         type: Date,
         default: null // Default value until the baby is checked out

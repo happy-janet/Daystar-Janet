@@ -94,6 +94,9 @@ router.post("/checkin", async (req, res) => {
     // Extract check-in form data from the request body
     const { babyName, babyGender, babyAge, babyLocation, guardianName, arrivalTime, parentsNames, stayDuration, amount, babyNumber, sitter } = req.body;
 
+		// Get the sitter details
+		const sitterDetails = await Sitters.findById(sitter);
+
     // Create a new instance of the Application model
     const newApplication = new Application({
       babyName,
@@ -105,7 +108,8 @@ router.post("/checkin", async (req, res) => {
       amount: parseInt(amount), // Convert amount to number
       periodOfStay: stayDuration,
       babyNumber,
-      sitter,
+      sitter: sitterDetails.firstName + " " + sitterDetails.lastName,
+			sitterId: sitter,
       clockInTime: new Date(), // Set current time as clock-in time
       status: "CheckedIn" // Set status to CheckedIn
     });
@@ -114,7 +118,7 @@ router.post("/checkin", async (req, res) => {
     await newApplication.save();
 
     // Send a success response
-    res.send(`Baby "${babyName}" has been checked in with Sitter "${sitter}".`);
+    // res.send(`Baby "${babyName}" has been checked in with Sitter "${sitter}".`);
     res.redirect("/admindash")
   } catch (error) {
     // Handle errors
