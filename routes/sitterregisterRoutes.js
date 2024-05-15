@@ -3,6 +3,9 @@ const express = require("express");
 const router = express.Router();
 const connectEnsureLogin = require("connect-ensure-login");
 const Sitters = require("../models/Sitters");
+const Procurement = require("../models/Procurement");
+const Dolls = require("../models/Dolls");
+const Application = require("../models/Application");
 
 
 router.get("/registersitter", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
@@ -125,5 +128,47 @@ router.post('/payments/:id', async (req, res) => {
       res.status(500).send('Internal server error');
   }
 });
+
+// Route to render the dashboard page
+router.get("/dashboard", async (req, res) => {
+  try {
+    // Fetch data from the database
+    const registeredSittersCount = await Sitters.countDocuments({});
+    const availableSittersCount = await Sitters.countDocuments({ available: true });
+    const checkedInBabiesCount = await Babies.countDocuments({ checkedIn: true });
+    const checkedOutBabiesCount = await Babies.countDocuments({ checkedOut: true });
+    const availableDollsCount = await Dolls.countDocuments({ available: true });
+    const soldDollsCount = await Dolls.countDocuments({ sold: true });
+
+    // Calculate procurement total by summing up the prices of all sold dolls
+    const soldDolls = await Dolls.find({ sold: true });
+    const procurementTotal = soldDolls.reduce((total, doll) => total + doll.salePrice, 0);
+
+    // Calculate total amount paid to sitters by summing up the payments made to all sitters
+    const sittersPayments = await Sitters.aggregate([
+      { $group: { _id: null, totalPayments: { $sum: "$totalPayment" } } }
+    ]);
+    const totalAmountPaidToSitters = sittersPayments.length > 0 ? sittersPayments[0].totalPayments : 0;
+
+    // Render the dashboard page and pass the data variables
+    res.render("dashboard", {
+      registeredSittersCount,
+      availableSittersCount,
+      checkedInBabiesCount,
+      checkedOutBabiesCount,
+      availableDollsCount,
+      soldDollsCount,
+      procurementTotal,
+      totalAmountPaidToSitters
+    });
+  } catch (error) {
+    // Log the error for debugging
+    console.error("Error fetching data for dashboard:", error);
+    // Render an error page or send an error response
+    res.status(500).send("Internal server error");
+  }
+});
+
+
 
 module.exports = router;

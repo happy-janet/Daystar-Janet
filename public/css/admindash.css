@@ -103,8 +103,8 @@ header .navbar-toggler-icon {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #343a40;
-    color: #C6DCBA;
+    background-color: var(--header-color);
+    color: var(--text-color);
     text-align: center;
     padding: 10px 0;
 }

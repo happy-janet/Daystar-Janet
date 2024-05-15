@@ -1,4 +1,3 @@
-
 doctype html
 html(lang='en')
   head
@@ -9,7 +8,7 @@ html(lang='en')
   body
     header
       h1 Babies Check-in
-    main
+    main.grid-container 
       form(action='/checkin', method='POST')
         label(for='babyName') Baby Name:
         input(type='text', name='babyName',)
@@ -52,4 +51,4 @@ html(lang='en')
         br
         button(type='submit') Check-in
     footer
-      p © 2024 Baby Check-in
+      p © Aballo Janet @2024

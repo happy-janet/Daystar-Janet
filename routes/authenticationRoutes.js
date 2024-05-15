@@ -62,10 +62,6 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     res.render("admindash")
  })
 
- router.get("/sitterdash", (req, res) =>{
-    res.render("sittersdashboard")
- })
-
  router.get("/sittersmanagement", (req, res) =>{
     res.render("sittersmanagement")
  })

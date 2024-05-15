@@ -1,117 +1,117 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Dashboard
-  // Bootstrap CSS
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet')
-  // Custom CSS
-  link(rel='stylesheet' href='/css/admindash.css')
-header
-  nav.navbar
-    header.navbar
-      .container-fluid
-        h1.navbar-brand Admin Dashboard
-    .container-fluid
-      a.navbar-brand Daystar Daycare
-      button.navbar-toggler(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasDarkNavbar' aria-controls='offcanvasDarkNavbar' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #offcanvasDarkNavbar.offcanvas.offcanvas-end.text-bg-dark(tabindex='-1' aria-labelledby='offcanvasDarkNavbarLabel')
-        .offcanvas-header
-          h5.offcanvas-title(style='color: #C6DCBA;') Daystar Daycare
-          button.btn-close.btn-close-white(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
-        .offcanvas-body
-          ul.navbar-nav
-            li.nav-item
-              a.nav-link.active(aria-current='page' href='/') Home
-            li.nav-item
-              a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Sitters 
-              ul.dropdown-menu.dropdown-menu-dark
-                li
-                  a.dropdown-item(href='/sitterslist') Registered Sitters
-                .sidebar
-                  li
-                    a.dropdown-item.active(href='/payments')
-                      h5.mt-3 Sitters Payment 
-            li.nav-item
-              a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Babies
-              ul.dropdown-menu.dropdown-menu-dark
-                li
-                  a.dropdown-item(href='/checkin') Check in
-                .sidebar
-                  li
-                    a.dropdown-item.active(href='/checkedInBabies')
-                      h5.mt-3 Checked In Babies
-                  li
-                    a.dropdown-item.active(href='/checkedOutBabies')
-                      h5.mt-3 Check out    
-            li.nav-item
-              a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Doll Stall
-              ul.dropdown-menu.dropdown-menu-dark
-                li
-                  a.dropdown-item(href='/dolls') Add Doll
-                .sidebar
-                  li
-                    a.dropdown-item.active(href='/dolls-table')
-                      h5.mt-3 Available Dolls
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Dashboard
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/admindash.css')
+  body
+    header
+      nav.navbar
+        header.navbar
+          .container-fluid
+            h1.navbar-brand Admin Dashboard
+        .container-fluid
+          a.navbar-brand Daystar Daycare
+          button.navbar-toggler(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasDarkNavbar' aria-controls='offcanvasDarkNavbar' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #offcanvasDarkNavbar.offcanvas.offcanvas-end.text-bg-dark(tabindex='-1' aria-labelledby='offcanvasDarkNavbarLabel')
+            .offcanvas-header
+              h5.offcanvas-title(style='color: #C6DCBA;') Daystar Daycare
+              button.btn-close.btn-close-white(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+            .offcanvas-body
+              ul.navbar-nav
+                li.nav-item
+                  a.nav-link.active(aria-current='page' href='/') Home
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Sitters 
+                  ul.dropdown-menu.dropdown-menu-dark
                     li
-                    a.dropdown-item.active(href='/sold-dolls')
-                      h5.mt-3 Sold Dolls   
-            li.nav-item
-              a.nav-link(href='/logout') Logout                   
-// Dashboard Body
-.container-fluid
-  .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-4
-    // Registered Sitters Card
-    .col
-      .card
-        .card-body
-          h5.card-title Registered Sitters
-          p.card-text.text-muted.text-center 100
-    // Available Sitters Card
-    .col
-      .card
-        .card-body
-          h5.card-title Available Sitters
-          p.card-text.text-muted.text-center 80
-    // Checked-in Babies Card
-    .col-md-6.col-lg-3
-      .card
-        .card-body
-          h5.card-title Checked-in Babies
-          p.card-text.text-muted.text-center 50
-    // Checked-out Babies Card
-    .col-md-6.col-lg-3
-      .card
-        .card-body
-          h5.card-title Checked-out Babies
-          p.card-text.text-muted.text-center 30
-    // Available Dolls Card
-    .col-md-6.col-lg-3
-      .card
-        .card-body
-          h5.card-title Available Dolls
-          p.card-text.text-muted.text-center 20
-    // Sold Dolls Card
-    .col-md-6.col-lg-3
-      .card
-        .card-body
-          h5.card-title Sold Dolls
-          p.card-text.text-muted.text-center 10
-    // Procurement Total Card
-    .col-md-6.col-lg-3
-      .card
-        .card-body
-          h5.card-title Procurement Total
-          p.card-text.text-muted.text-center $1000
-    // Total Amount Paid to Sitters Card
-    .col-md-6.col-lg-3
-      .card
-        .card-body
-          h5.card-title Total Amount Paid to Sitters
-          p.card-text.text-muted.text-center $5000
-// Footer
-footer.footer.bg-dark.text-center.text-white.py-3
-  p &copy; 2024 Your Company Name
-// Bootstrap JS
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')
+                      a.dropdown-item(href='/sitterslist') Registered Sitters
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/payments')
+                          h5.mt-3 Sitters Payment 
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Babies
+                  ul.dropdown-menu.dropdown-menu-dark
+                    li
+                      a.dropdown-item(href='/checkin') Check in
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/checkedInBabies')
+                          h5.mt-3 Checked In Babies
+                    li
+                      a.dropdown-item.active(href='/checkedOutBabies')
+                        h5.mt-3 Check out    
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Doll Stall
+                  ul.dropdown-menu.dropdown-menu-dark
+                    li
+                      a.dropdown-item(href='/dolls') Add Doll
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/dolls-table')
+                          h5.mt-3 Available Dolls
+                      li
+                        a.dropdown-item.active(href='/sold-dolls')
+                          h5.mt-3 Sold Dolls   
+                li.nav-item
+                  a.nav-link(href='/logout') Logout                   
+    // Dashboard Body
+    .container-fluid
+      .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-4
+        // Registered Sitters Card
+        .col
+          .card
+            .card-body
+              h5.card-title Registered Sitters
+              p.card-text.text-muted.text-center #{registeredSittersCount}
+        // Available Sitters Card
+        .col
+          .card
+            .card-body
+              h5.card-title Available Sitters
+              p.card-text.text-muted.text-center #{availableSittersCount}
+        // Checked-in Babies Card
+        .col-md-6.col-lg-3
+          .card
+            .card-body
+              h5.card-title Checked-in Babies
+              p.card-text.text-muted.text-center #{checkedInBabiesCount}
+        // Checked-out Babies Card
+        .col-md-6.col-lg-3
+          .card
+            .card-body
+              h5.card-title Checked-out Babies
+              p.card-text.text-muted.text-center #{checkedOutBabiesCount}
+        // Available Dolls Card
+        .col-md-6.col-lg-3
+          .card
+            .card-body
+              h5.card-title Available Dolls
+              p.card-text.text-muted.text-center #{availableDollsCount}
+        // Sold Dolls Card
+        .col-md-6.col-lg-3
+          .card
+            .card-body
+              h5.card-title Sold Dolls
+              p.card-text.text-muted.text-center #{soldDollsCount}
+        // Procurement Total Card
+        .col-md-6.col-lg-3
+          .card
+            .card-body
+              h5.card-title Procurement Total
+              p.card-text.text-muted.text-center #{procurementTotal}
+        // Total Amount Paid to Sitters Card
+        .col-md-6.col-lg-3
+          .card
+            .card-body
+              h5.card-title Total Amount Paid to Sitters
+              p.card-text.text-muted.text-center #{totalAmountPaidToSitters}
+    // Footer
+    footer.footer
+      p &copy; Aballo Janet @2024. All rights reserved.
+    // Bootstrap JS
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')
