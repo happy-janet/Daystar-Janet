@@ -14,6 +14,62 @@ html(lang='en')
         button#searchButton(type='submit') Search
     aside.sidebar
       h2 Sidebar
+      .container-fluid
+          a.navbar-brand Daystar Daycare
+          button.navbar-toggler(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasDarkNavbar' aria-controls='offcanvasDarkNavbar' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #offcanvasDarkNavbar.offcanvas.offcanvas-end.text-bg-dark(tabindex='-1' aria-labelledby='offcanvasDarkNavbarLabel')
+            .offcanvas-header
+              h5.offcanvas-title(style='color: #C6DCBA;') Daystar Daycare
+              button.btn-close.btn-close-white(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+            .offcanvas-body
+              ul.navbar-nav
+                li.nav-item
+                  a.nav-link.active(aria-current='page' href='/') Home
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Sitters 
+                  ul.dropdown-menu.dropdown-menu-dark
+                    li
+                      a.dropdown-item(href='/sitterslist') Registered Sitters
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/payments')
+                          h5.mt-3 Sitters Payment 
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Babies
+                  ul.dropdown-menu.dropdown-menu-dark
+                    li
+                      a.dropdown-item(href='/checkin') Check in
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/checkedInBabies')
+                          h5.mt-3 Checked In Babies
+                    li
+                      a.dropdown-item.active(href='/checkedOutBabies')
+                        h5.mt-3 Check out    
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Doll Stall
+                  ul.dropdown-menu.dropdown-menu-dark
+                    li
+                      a.dropdown-item(href='/dolls') Add Doll
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/dolls-table')
+                          h5.mt-3 Available Dolls
+                      li
+                        a.dropdown-item.active(href='/sold-dolls')
+                          h5.mt-3 Sold Dolls   
+                li.nav-item
+                  a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Procurements
+                  ul.dropdown-menu.dropdown-menu-dark
+                    li
+                      a.dropdown-item(href='/addprocurement') Add Item
+                    .sidebar
+                      li
+                        a.dropdown-item.active(href='/procurementlist')
+                          h5.mt-3 list of procured items          
+                li.nav-item
+                  a.nav-link(href='/logout') Logout            
       // Put your sidebar content here
     main.content
       block content
