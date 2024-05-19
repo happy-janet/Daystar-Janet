@@ -10,46 +10,48 @@ html(lang='en')
       h1 Babies Check-in
     main.grid-container 
       form#checkinForm(action='/checkin', method='POST')
-        label(for='babyName') Baby Name:
-        input(type='text', name='babyName')
-        br
-        label(for='babyGender') Gender:
-        select(name='babyGender')
-          option(value='Male') Male
-          option(value='Female') Female
-        br
-        label(for='babyAge') Age (in months):
-        input(type='number', name='babyAge')
-        br
-        label(for='babyLocation') Location:
-        input(type='text', name='babyLocation')
-        br
-        label(for='guardianName') Guardian's Name:
-        input(type='text', name='guardianName')
-        br
-        label(for='arrivalTime') Arrival Time:
-        input(type='datetime-local', name='arrivalTime')
-        br
-        label(for='parentsNames') Parents' Names:
-        input(type='text', name='parentsNames')
-        br
-        label(for='stayDuration') Stay Duration (in hours):
-        input(type='number', name='stayDuration')
-        br
-        label(for='amount') Amount:
-        select(name='amount')
-          option(value='10000') UGX 10,000
-          option(value='15000') UGX 15,000
-        br
-        label(for='sitter') Select Sitter:
-        select(name='sitter')
-          each sitter in sitters
-            option(value=sitter._id)= sitter.firstName+' '+sitter.lastName
-        br
-        label(for='babyNumber') Baby Number:
-        input(type='text', name='babyNumber')
-        br
-        button(type='submit') Check-in
+        div#checkinFormContainer
+          div
+            label(for='babyName') Baby Name:
+            input(type='text', name='babyName')
+          div
+            label(for='babyGender') Gender:
+            select(name='babyGender')
+              option(value='Male') Male
+              option(value='Female') Female
+          div
+            label(for='babyAge') Age (in months):
+            input(type='number', name='babyAge')
+          div
+            label(for='babyLocation') Location:
+            input(type='text', name='babyLocation')
+          div
+            label(for='guardianName') Guardian's Name:
+            input(type='text', name='guardianName')
+          div
+            label(for='arrivalTime') Arrival Time:
+            input(type='datetime-local', name='arrivalTime')
+          div
+            label(for='parentsNames') Parents' Names:
+            input(type='text', name='parentsNames')
+          div
+            label(for='stayDuration') Stay Duration (in hours):
+            input(type='number', name='stayDuration')
+          div
+            label(for='amount') Amount:
+            select(name='amount')
+              option(value='10000') UGX 10,000
+              option(value='15000') UGX 15,000
+          div
+            label(for='sitter') Select Sitter:
+            select(name='sitter')
+              each sitter in sitters
+                option(value=sitter._id)= sitter.firstName+' '+sitter.lastName
+          div
+            label(for='babyNumber') Baby Number:
+            input(type='text', name='babyNumber')
+        div
+          button(type='submit') Check-in
     footer
       p © Aballo Janet @2024
     script(src='/js/checkin.js')

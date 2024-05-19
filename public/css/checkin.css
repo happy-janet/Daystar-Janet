@@ -26,9 +26,12 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     margin-bottom: 10px;
-    /* display: grid;
+  }
+
+  #checkinFormContainer {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px; */
+    gap: 10px;
   }
   
   h1 {

@@ -131,10 +131,22 @@ router.post("/checkin", async (req, res) => {
 // Route to fetch the list of checked-in babies
 router.get("/checkedInBabies", async (req, res) => {
   try {
-    // Find all babies with status "CheckedIn"
-    const checkedInBabies = await Application.find({ status: "CheckedIn" });
+		// Define a filter object
+		const filter = {
+			status: "CheckedIn"
+		};
 
-    res.render("checkedInBabies", { babies: checkedInBabies });
+		// Get query parameter q
+		const q = req.query.q;
+		// If q is not empty, set the filter object to filter by baby name
+		if (q) {
+			// Filter by baby name - like
+			filter.babyName = { $regex: new RegExp(q, "i") };
+		}
+
+		const checkedInBabies = await Application.find(filter);
+
+    res.render("checkedInBabies", { babies: checkedInBabies, q });
   } catch (error) {
     console.error("Error fetching checked-in babies:", error);
     res.status(500).send("Internal server error");

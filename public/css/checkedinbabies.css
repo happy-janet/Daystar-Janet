@@ -125,3 +125,7 @@ background-color: red;
 .check-out-button:hover {
   background-color: #0056b3;
 }
+
+#searchForm {
+	width: 100%;
+}

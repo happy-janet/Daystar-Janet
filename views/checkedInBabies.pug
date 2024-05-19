@@ -9,6 +9,9 @@ html(lang='en')
     header
       h1 Babies Check-in
     main
+      form#searchForm(action='/checkedInBabies', method='GET')
+        input#searchInput(type='text', placeholder='Search...', name='q', value= q)
+        button#searchButton(type='submit') Search
       table
         thead
           tr
