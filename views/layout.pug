@@ -5,13 +5,10 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Your Website Title
     link(rel='stylesheet', href='/css/layout.css')
+    block styles
   body
     header
       h1 Your Website Header
-      // Search Bar
-      form#searchForm(action='/search', method='GET')
-        input#searchInput(type='text', placeholder='Search...', name='q')
-        button#searchButton(type='submit') Search
     aside.sidebar
       h2 Sidebar
       .container-fluid

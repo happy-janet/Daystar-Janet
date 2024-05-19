@@ -28,8 +28,17 @@ router.post("/registersitter", connectEnsureLogin.ensureLoggedIn(), async (req, 
 // Fetching sitters from the database
 router.get("/sitterslist", async (req, res) => {
   try {
-    const sitters = await Sitters.find({});
-    res.render("sittersmanagement", { sitters: sitters });
+    const filters = {};
+		const q = req.query.q;
+		if (q) {
+			// Filter by sitter name (first or last name) - like
+			filters.$or = [
+        { firstName: { $regex: q, $options: 'i' } },
+        { lastName: { $regex: q, $options: 'i' } }
+      ];
+		}
+    const sitters = await Sitters.find(filters);
+    res.render("sittersmanagement", { sitters: sitters, q });
   } catch (error) {
     res.status(400).send("Unable to fetch sitters from the database.");
     console.error("Error fetching sitters:", error);
