@@ -1,6 +1,23 @@
 /* paymentsmanagement.css */
 
 /* Table styles */
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: #6ccff6;
+  --header-color:#2C4E80;
+  /* --header-color: #470a21;
+  --background-color: #fbd1da;
+  --main-color: #d32b60; */
+  
+}
+h1{
+  color: var(--text-color);
+  text-align: center;
+  background-color: var(--header-color);
+  padding: 40px;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -18,11 +35,20 @@ table {
   }
   
   tr:nth-child(even) {
-    background-color: var(--second-bg-color);
+    background-color: var(--text-color);
   }
   
   tr:hover {
     background-color: var(--main-color);
     color: white;
   }
-  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
+}

@@ -9,12 +9,13 @@
     font-family: 'Times New Roman', Times, serif;   
 }
 :root {
-    --bg-color: #080808;
-    --second-bg-color: #131313;
-    --text-color: white;
-    --header-color: #470a21;
-    --background-color: #fbd1da;
-    --main-color: #d32b60;
+
+--bg-color: #080808;
+--second-bg-color: #131313;
+--text-color: white;
+--main-color: #6ccff6;
+--header-color:#2C4E80;
+--background-color: #6ccff6;
 }
 
 html{
@@ -80,7 +81,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15rem;
+    gap: 55rem;
     color: white;
     text-decoration: none;
 }
@@ -132,8 +133,9 @@ span{
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 32vw;
-    border-radius: 50%;
+    width: 22vw;
+    height: 60vh;
+    border-radius: 20%;
     box-shadow: 0 0 25px var(--background-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;

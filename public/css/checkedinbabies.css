@@ -1,74 +1,127 @@
+/* General Styles */
 :root {
-    --bg-color: #080808;
-    --second-bg-color: #131313;
-    --text-color: white;
-    --header-color: #470a21;
-    --background-color: #fbd1da;
-    --main-color: #d32b60;
- 
-  }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  /* Button Styling */
-  button[type="submit"] {
-    background-color: #8c040b;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-/* Header Styling */
-header {
-    background-color: var(--header-color);
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Footer Styling */
-  footer {
-    background-color: var(--header-color);
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: #6ccff6;
+  --header-color:#2C4E80;
+  --background-color: #6ccff6;
     
-  /* Style for the update button */
-.update-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Hover effect */
-  .update-button:hover {
-    background-color: #45a049; /* Darker green */
-  }
-  
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--header-color, #470a21);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  background-color: var(--header-color, #470a21);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: var(--header-color);
+  color: white;
+}
+
+thead th {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+
+tbody td {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: var(--main-color);
+}
+
+ .update-button {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover, .update-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.check-out-button {
+  background-color: #8c040b;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.check-out-button:hover {
+  background-color: #0056b3;
+}

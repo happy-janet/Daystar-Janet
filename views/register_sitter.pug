@@ -1,58 +1,52 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Babysitter Registration Form
-  link(rel='stylesheet' href='/css/register_sitter.css')
-.container
-  h2 Babysitter Registration Form
-  form#registrationForm.form(action='/registersitter' method='POST')
-    .form-group
-      label(for='firstName') First Name:
-      input#firstName(type='text' name='firstName')
-    .form-group
-      label(for='lastName') Last Name:
-      input#lastName(type='text' name='lastName')
-    .form-group
-      label(for='location') Location:
-      input#location(type='text' name='location')
-    .form-group
-      label(for='dob') Date of Birth:
-      input#dob(type='date' name='dob')
-    .form-group
-      label(for='gender') Gender:
-      select#gender(name='gender')
-        option(value='male') Male
-        option(value='female') Female
-        option(value='other') Other
-    .form-group
-      label(for='nextOfKin') Next of Kin:
-      input#nextOfKin(type='text' name='nextOfKin')
-    .form-group
-      label(for='nin') National Identification Number (NIN):
-      input#nin(type='text' name='nin' )
-    .form-group
-      label(for='recommender') Recommender&apos;s Name:
-      input#recommender(type='text' name='recommender')
-    .form-group
-      label(for='educationLevel') Level of Education:
-      input#educationLevel(type='text' name='educationLevel')
-    .form-group
-      label(for='contact') Contact:
-      input#contact(type='text' name='contact')
-    .form-group
-      label(for='sittersNumber') Babysitter&apos;s Number:
-      input#sittersNumber(type='text' name='sittersNumber')
-    .form-group
-      label(for='email') Email:
-      input#contact(type='text' name='email')
-    //- .form-group
-    //-   label(for='role') Role:
-    //-   select#role(name='role')
-    //-     option(value='sitter') Sitter
-    //- .form-group
-    //-   label(for='password') Password:
-    //-   input#contact(type='password' name='password')
-    .btn
-      input(type='submit' value='Register')
-      script(src="/js/register_sitter") 
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Babysitter Registration Form
+    link(rel='stylesheet' href='/css/register_sitter.css')
+  .container
+    h2 Babysitter Registration Form
+    form#registrationForm.form(action='/registersitter' method='POST')
+      .form-group
+        label(for='firstName') First Name:
+        input#firstName(type='text' name='firstName')
+      .form-group
+        label(for='lastName') Last Name:
+        input#lastName(type='text' name='lastName')
+      .form-group
+        label(for='location') Location:
+        input#location(type='text' name='location')
+      .form-group
+        label(for='dob') Date of Birth:
+        input#dob(type='date' name='dob')
+      .form-group
+        label(for='gender') Gender:
+        select#gender(name='gender')
+          option(value='male') Male
+          option(value='female') Female
+          option(value='other') Other
+      .form-group
+        label(for='nextOfKin') Next of Kin:
+        input#nextOfKin(type='text' name='nextOfKin')
+      .form-group
+        label(for='nin') National Identification Number (NIN):
+        input#nin(type='text' name='nin')
+      .form-group
+        label(for='recommender') Recommender&apos;s Name:
+        input#recommender(type='text' name='recommender')
+      .form-group
+        label(for='educationLevel') Level of Education:
+        input#educationLevel(type='text' name='educationLevel')
+      .form-group
+        label(for='contact') Contact:
+        input#contact(type='text' name='contact')
+      .form-group
+        label(for='sittersNumber') Babysitter&apos;s Number:
+        input#sittersNumber(type='text' name='sittersNumber')
+      .form-group
+        label(for='email') Email:
+        input#email(type='text' name='email')
+      .btn
+        input(type='submit' value='Register')
+  script(src='/js/register_sitter.js')

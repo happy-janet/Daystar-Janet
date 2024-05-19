@@ -1,12 +1,22 @@
 doctype html
-html(lang="en")
+html(lang='en')
   head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Daystar Daycare
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Your Website Title
+    link(rel='stylesheet', href='/css/layout.css')
   body
     header
-      include ./search.pug
-    // Content block for individual pages
-    block content
-
+      h1 Your Website Header
+      // Search Bar
+      form#searchForm(action='/search', method='GET')
+        input#searchInput(type='text', placeholder='Search...', name='q')
+        button#searchButton(type='submit') Search
+    aside.sidebar
+      h2 Sidebar
+      // Put your sidebar content here
+    main.content
+      block content
+    footer
+      p © 2024 Your Company Name
+    script(src='/js/search.js')

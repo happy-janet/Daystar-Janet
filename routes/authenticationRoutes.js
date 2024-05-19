@@ -38,9 +38,6 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     if(req.user.role === "admin"){
         res.redirect("/admindash")
     }
-    // else if (req.user.role === "sitter"){
-    //     res.redirect("/sitterdash")
-    // }
     else {res.send("you dont have a role in the system")}
  })
 
@@ -70,6 +67,7 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     const availableDollsCount = await Dolls.countDocuments({ available: true });
     const soldDollsCount = await Dolls.countDocuments({ sold: true });
 
+
     // Calculate procurement total by summing up the prices of all sold dolls
     const soldDolls = await Dolls.find({ sold: true });
     const procurementTotal = soldDolls.reduce((total, doll) => total + doll.salePrice, 0) || 0;
@@ -89,7 +87,7 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
       availableDollsCount,
       soldDollsCount,
       procurementTotal,
-      totalAmountPaidToSitters
+      totalAmountPaidToSitters,
     });
   } catch (error) {
     // Log the error for debugging
@@ -103,38 +101,47 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     res.render("sittersmanagement")
  })
 
- router.get("/income", (req, res) =>{
-    res.render("income")
- })
 
 
- router.get("/income", async(req, res) =>{
-    try {
-        const dolls = await Dolls.find();
-        const payments = await Babypayments.find();
-        res.render("income", {dolls:dolls, payments:payments})
-      } catch (error) {
-        res.status(400).send("unable to fetch babies from the database")
-      }
-    res.render("income")
- })
+//  const async = require('async'); // Import the async library for handling asynchronous operations
 
-
-router.get('/search', (req, res) => {
-    // Retrieve the search query from the request parameters
-    const query = req.query.query;
-    // Check if the query is defined before processing it
-    if (query) {
-      // Filter items based on whether they contain the search query
-      const results = items.filter(item => item.toLowerCase().includes(query.toLowerCase()));
-      // Render the search results using a Pug template
-      return res.render('search', { query, results });
-    } else {
-      // If no query is provided, render the search form again with an error message
-      return res.render('search', { query: '', results: [], error: 'Please provide a search query' });
-    }
-  });
-  
+ router.get('/search', async (req, res) => {
+   try {
+     const query = req.query.query;
+     
+     if (!query) {
+       return res.render('search', { query: '', results: [], error: 'Please provide a search query' });
+     }
+ 
+     // Define an array of model names you want to search through
+     const modelsToSearch = [Sitters, Dolls, Register, Application, Procurement]; // Update this array with your model names
+ 
+     // Perform asynchronous search queries across all models
+     async.map(modelsToSearch, (model, callback) => {
+       model.find({ $text: { $search: query } }, (err, results) => {
+         if (err) {
+           return callback(err);
+         }
+         callback(null, results);
+       });
+     }, (err, searchResults) => {
+       if (err) {
+         console.error('Error searching for items:', err);
+         return res.status(500).send('Internal server error');
+       }
+ 
+       // Flatten the array of search results
+       const flattenedResults = searchResults.flat();
+ 
+       // Render the search results using a Pug template
+       res.render('search-results', { query, results: flattenedResults });
+     });
+   } catch (error) {
+     console.error('Error searching for items:', error);
+     res.status(500).send('Internal server error');
+   }
+ });
+ 
   
   
 

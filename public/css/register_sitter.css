@@ -1,12 +1,12 @@
-    :root {
-      --bg-color: #080808;
-      --second-bg-color: #131313;
-      --text-color: white;
-      --main-color: #6ccff6;
-      --header-color:#2C4E80;
-      --background-color: #9DB2BF;
-
-    }
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: #6ccff6;
+  --header-color:#2C4E80;
+  --background-color: #6ccff6;
+  
+}
 
     body {
       background: var(--background-color);
@@ -52,7 +52,7 @@
 
     label {
       font-weight: bold;
-      color: var(--main-color);
+      color: var(--text-color);
     }
 
     input[type="text"],
@@ -68,7 +68,7 @@
     }
 
     input[type="submit"] {
-      background-color: #007bff;
+      background-color: var(--main-color);
       color: white;
       padding: 10px 80px ;
       border: none;

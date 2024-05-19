@@ -4,12 +4,12 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Daycare Procurements
-    link(rel='stylesheet', href='/css/procurement.css')
+    link(rel='stylesheet', href='/css/procurements.css')
   body
     header
       h1 Daycare Procurements
     main
-      form(action='/addprocurement', method='POST')
+      form#procurementForm(action='/addprocurement', method='POST')
         label(for='item') Item:
         input(type='text', id='item', name='item')
         br
@@ -24,4 +24,6 @@ html(lang='en')
         br
         button(type='submit') Add Procurement
     footer
-      p © 2024 Your Company Name
+      p &copy; Aballo Janet @2024. All rights reserved.
+
+    script(src='/js/procurements.js')

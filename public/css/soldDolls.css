@@ -1,11 +1,12 @@
 :root {
-    --bg-color: #080808;
-    --second-bg-color: #131313;
-    --text-color: white;
-    --header-color: #470a21;
-    --background-color: #fbd1da;
-    --main-color: #d32b60;
-    }
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: #6ccff6;
+  --header-color:#2C4E80;
+  --background-color: #6ccff6;
+  
+}
 header {
     background-color: var(--header-color); 
     color: #fff; 

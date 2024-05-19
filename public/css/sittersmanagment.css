@@ -9,15 +9,20 @@
   --bg-color: #080808;
   --second-bg-color: #131313;
   --text-color: white;
-  --header-color: #470a21;
-    --background-color: #fbd1da;
-    --main-color: #d32b60;
+  --main-color: #6ccff6;
+  --header-color:#2C4E80;
+  --background-color: #6ccff6;
 }
 
-/* Global styles */
-body {
+html, body {
+  height: 100%;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -55,6 +60,7 @@ h1 {
 }
 
 main {
+  flex: 1;
   padding: 20px;
 }
 
@@ -132,7 +138,7 @@ a.update-btn {
 a.update-btn:hover {
   background-color: #e0a800;
 }
-/* Styles for the check-in button */
+
 button.check-in-button {
   background-color: #218838; /* Use the main color variable for background */
   color: white; /* Text color */
@@ -147,3 +153,10 @@ button.check-in-button:hover {
   background-color: #218838; /* Darken the background color on hover */
 }
 
+.footer {
+  background-color: var(--header-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+}

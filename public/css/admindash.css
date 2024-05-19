@@ -2,9 +2,9 @@
     --bg-color: #080808;
     --second-bg-color: #131313;
     --text-color: white;
-    --header-color: #470a21;
-    --background-color: #fbd1da;
-    --main-color: #d32b60;
+    --main-color: #6ccff6;
+    --header-color:#2C4E80;
+    --background-color: #6ccff6;
 }
 
 /* Body */
@@ -112,14 +112,18 @@ header .navbar-toggler-icon {
 /* Cards */
 .card {
     border: 2px solid var(--text-color);
-    background-color: var(--main-color);
+    background-color: var(--header-color);
     color: var(--text-color);
     transition: transform 0.3s ease-in-out;
+}
+.p{
+    color: var(--text-color);
 }
 
 /* Card hover effect */
 .card:hover {
     transform: translate(0, -5px);
+    color: var(--text-color);
 }
 
 /* Set custom widths for some cards */
@@ -134,6 +138,7 @@ header .navbar-toggler-icon {
     width: calc(33.33% - 20px);
     margin-right: 20px;
     margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 /* Adjust width for two cards per row */

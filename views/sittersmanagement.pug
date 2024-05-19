@@ -8,19 +8,8 @@ head
 header
     nav
       ul
-        li
-           a(href='/logout') Logout
-        li
-           a(href='procurementsm nagement.pug') Procurement
-        li
-           a(href='paymentsmanagement.pug') Payments
-        li
-           a(href='babiesmanagement.pug') Babies
-        li
-           a(href='sittersmanagement2.pug') Sitters
-        li
-           a(href='index.pug') Home
-    h1 DayStar Admin Dashboard
+       
+    h1 Sitters Management
 main
     a(href="/registersitter")
       button#happy Add Sitter
@@ -74,6 +63,8 @@ section
               form(method="POST" action="/delete")
                 input(type="hidden" name="id" value=sitter._id)
                 button(type="submit") <i class="fa-solid fa-trash"></i>
+footer.footer
+      p &copy; Aballo Janet @2024. All rights reserved.                
 script(src='../public/js/sittersmanagement.js')
 
         

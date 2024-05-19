@@ -1,35 +1,30 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  title Login
-  link(rel='stylesheet' href='/css/login.css')
-header.header
-  a.logo(href='index.html')
-    | Daystar 
-    span Daycare
-  i#menu-icon.fa-solid.fa-bars
-  //
-    <nav class="navbar">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#testimonials">Gallery</a>
-    </nav>
-.container
-  form#loginform(action='/login' method='POST')
-    p Welcome
-    input(type='email' placeholder='Email' name='email')
-    br
-    input(type='password' placeholder='Password' name='password') 
-    br
-    input(type='submit' value='LOGIN' class='login-button') 
-    br
-  .drops
-    .drop.drop-1
-    .drop.drop-2
-    .drop.drop-3
-    .drop.drop-4
-    .drop.drop-5
-footer
-  p &copy; Aballo Janet @2024. All rights reserved.
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Login
+    link(rel='stylesheet' href='/css/login.css')
+  header.header
+    a.logo(href='index.html')
+      | Daystar 
+      span Daycare
+    i#menu-icon.fa-solid.fa-bars
+  .container
+    form#loginform(action='/login' method='POST')
+      p Welcome
+      input(type='email' placeholder='Email' name='email')
+      br
+      input(type='password' placeholder='Password' name='password') 
+      br
+      input(type='submit' value='LOGIN' class='login-button') 
+      br
+    .drops
+      .drop.drop-1
+      .drop.drop-2
+      .drop.drop-3
+      .drop.drop-4
+      .drop.drop-5
+  footer
+    p &copy; Aballo Janet @2024. All rights reserved.
+  script(src='/js/login.js')

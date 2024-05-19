@@ -1,7 +1,12 @@
-/* sellForm.css */
-
-/* Add your CSS styles here */
-/* For example: */
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: #6ccff6;
+  --header-color:#2C4E80;
+  --background-color: #6ccff6;
+  
+}
 form {
     max-width: 400px;
     margin: 0 auto;

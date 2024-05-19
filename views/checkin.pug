@@ -9,23 +9,23 @@ html(lang='en')
     header
       h1 Babies Check-in
     main.grid-container 
-      form(action='/checkin', method='POST')
+      form#checkinForm(action='/checkin', method='POST')
         label(for='babyName') Baby Name:
-        input(type='text', name='babyName',)
+        input(type='text', name='babyName')
         br
         label(for='babyGender') Gender:
-        select(name='babyGender',)
+        select(name='babyGender')
           option(value='Male') Male
           option(value='Female') Female
         br
         label(for='babyAge') Age (in months):
-        input(type='number', name='babyAge',)
+        input(type='number', name='babyAge')
         br
         label(for='babyLocation') Location:
-        input(type='text', name='babyLocation',)
+        input(type='text', name='babyLocation')
         br
         label(for='guardianName') Guardian's Name:
-        input(type='text', name='guardianName',)
+        input(type='text', name='guardianName')
         br
         label(for='arrivalTime') Arrival Time:
         input(type='datetime-local', name='arrivalTime')
@@ -34,21 +34,22 @@ html(lang='en')
         input(type='text', name='parentsNames')
         br
         label(for='stayDuration') Stay Duration (in hours):
-        input(type='number', name='stayDuration',)
+        input(type='number', name='stayDuration')
         br
         label(for='amount') Amount:
-        select(name='amount',)
+        select(name='amount')
           option(value='10000') UGX 10,000
           option(value='15000') UGX 15,000
         br
         label(for='sitter') Select Sitter:
-        select(name='sitter',)
+        select(name='sitter')
           each sitter in sitters
             option(value=sitter._id)= sitter.firstName+' '+sitter.lastName
         br
         label(for='babyNumber') Baby Number:
-        input(type='text', name='babyNumber',)
+        input(type='text', name='babyNumber')
         br
         button(type='submit') Check-in
     footer
       p © Aballo Janet @2024
+    script(src='/js/checkin.js')

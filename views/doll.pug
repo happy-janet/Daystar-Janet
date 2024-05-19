@@ -4,16 +4,17 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Available dolls
-    link(rel='stylesheet', href='/css/dolls.css') 
-body
-  header
-     h1 Add Dolls
-  main        
-    form(action='/dolls', method='POST')
-      label(for='dollName') Doll Name:
-      input(type='text', name='dollName')
-      label(for='price') Price:
-      input(type='number', name='price')
-      label(for='number') Number:
-      input(type='number', name='number')
-      button(type='submit') Add Doll
+    link(rel='stylesheet', href='/css/dolls.css')
+  body
+    header
+      h1 Add Dolls
+    main        
+      form#dollForm(action='/dolls', method='POST')
+        label(for='dollName') Doll Name:
+        input(type='text', name='dollName')
+        label(for='price') Price:
+        input(type='number', name='price')
+        label(for='number') Number:
+        input(type='number', name='number')
+        button(type='submit') Add Doll
+    script(src='/js/dolls.js')
