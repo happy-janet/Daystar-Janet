@@ -7,6 +7,12 @@ html(lang='en')
     link(rel='stylesheet', href='/css/checkedinbabies.css') 
   body
     header
+      nav
+        ul
+          li: a(href="/") Home
+          li: a(href="/checkedOutBabies") Checkedout Babies
+          li: a(href="/admindash") Admin Dashboard
+          li: a(href="/logout") Logout
       h1 Babies Check-in
     main
       form#searchForm(action='/checkedInBabies', method='GET')
@@ -51,7 +57,6 @@ html(lang='en')
               td 
                 form(method="POST" action="/deleted")
                   input(type="hidden" name="id" value=baby._id)
-                  button(type="submit") Delete     
+                  button(type='submit') Delete     
     footer
       p &copy; Aballo Janet @2024. All rights reserved.
-

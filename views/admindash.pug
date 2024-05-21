@@ -28,8 +28,11 @@ html(lang='en')
                   a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') Sitters 
                   ul.dropdown-menu.dropdown-menu-dark
                     li
-                      a.dropdown-item(href='/sitterslist') Registered Sitters
+                      a.dropdown-item(href='/registersitter') Register Sitters
                     .sidebar
+                      li
+                        a.dropdown-item.active(href='/sitterslist')
+                          h5.mt-3 Reistered Sitters 
                       li
                         a.dropdown-item.active(href='/payments')
                           h5.mt-3 Sitters Payment 

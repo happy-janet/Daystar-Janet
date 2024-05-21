@@ -7,6 +7,28 @@
   --background-color: #6ccff6;
   
 }
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: var(--main-color);
+}
 header {
     background-color: var(--header-color); 
     color: #fff; 
